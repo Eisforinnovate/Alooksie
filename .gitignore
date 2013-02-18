@@ -13,3 +13,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore the gemfile because of differences between my Windows environment and a Mac
+/Gemfile.lock
