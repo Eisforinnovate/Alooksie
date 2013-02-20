@@ -1,5 +1,4 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, 'CONSUMER_KEY', 'CONSUMER_SECRET'
-  provider :facebook, 'APP_ID', 'APP_SECRET'
-  provider :linked_in, 'CONSUMER_KEY', 'CONSUMER_SECRET'
+  provider :twitter, 'DaJZpTSc9GGu3AB2Y8xBw', 'XqdJulQb26AsCYAS99RaH88gMi86nPl81sjBzJ7WhGE'
+  provider :facebook, '519961638027321', '0a583c7ebc8eb6079812c37627b6dcec'
 end
