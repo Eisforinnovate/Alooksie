@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	attr_accessible :created_at, :email, :id, :name, :university_id, :updated_at
 	has_many :authorizations
 	validates :name, :email, :presence => true
+	validates :email, :uniqueness => true
 
 	def add_provider(auth_hash)
 		# Check if the provider already exists for this user
