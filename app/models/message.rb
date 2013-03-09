@@ -5,7 +5,7 @@ class Message < ActiveRecord::Base
   has_many :messagematchs
   has_many :messagehashtags
   validates :user_id, :content, presence: true
-  validates :content, :length => { maximum: => 200 }
+  validates :content, :length => { :maximum => 200 }
   default_scope order: 'messages.created_at DESC'  #defaults to displaying recent first
 
 end
