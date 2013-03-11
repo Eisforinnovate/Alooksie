@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 		@authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 		if @authorization
 			user = User.find_by_id(@authorization.user_id)
-			render :text => "Welcome back #{@authorization.user.name}! You have already signed up. <ul><li>ID: #{user.id}</li><li>Email: #{user.email}</li><li>Created: #{user.created_at}</li><li>#{@authorization}</li></ul>"
+			render :text => "Welcome back #{@authorization.user.name}! You have already signed up. <ul><li>ID: #{user.id}</li><li>Email: #{user.email}</li><li>Created: #{user.created_at}</li><li>#{@authorization.to_json}</li></ul>"
 		else
 			user = User.new :name => auth_hash["info"]["name"], :email => auth_hash["info"]["email"]
 			user.authorizations.build :provider => auth_hash["provider"], :uid => auth_hash["uid"]
