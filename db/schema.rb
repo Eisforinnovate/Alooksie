@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130224020025) do
+ActiveRecord::Schema.define(:version => 20130302191814) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -21,9 +21,48 @@ ActiveRecord::Schema.define(:version => 20130224020025) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "users", :force => true do |t|
+  create_table "hashtags", :force => true do |t|
+    t.string   "name"
+    t.string   "criteria"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "messagehashtags", :force => true do |t|
+    t.integer  "message_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messagematches", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "messages", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifications", :force => true do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "message_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "university_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end
