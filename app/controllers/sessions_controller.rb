@@ -2,11 +2,11 @@
 class SessionsController < ApplicationController
 	# Delete inactive sessions; default to one hour session expiry
 	def self.sweep(time = 1.hour)
-		if time.is_a?(String)
-			time = time.split.inject { |count unit| count.to_i.send(unit) }
-		end
+	    if time.is_a?(String)
+	      time = time.split.inject { |count, unit| count.to_i.send(unit) }
+	    end
 
-		delete_all "updated_at < '#{time.ago.to_s(:db)}'"
+	    delete_all "updated_at < '#{time.ago.to_s(:db)}' OR created_at < '#{2.days.ago.to_s(:db)}'"
 	end
 
 	def create
@@ -33,8 +33,9 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
-	    flash[:notice] = "You have successfully logged out"
-	    redirect_to root_url
+		session[:user] = nil
+		flash[:notice] = "You have successfully logged out"
+		redirect_to root_url
 	end
 
 	def failure
