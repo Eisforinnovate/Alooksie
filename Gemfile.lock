@@ -43,6 +43,8 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.5)
       multipart-post (~> 1.1)
+    font-awesome-rails (3.2.1.1)
+      railties (>= 3.2, < 5.0)
     hashie (1.2.0)
     hike (1.2.1)
     httpauth (0.2.0)
@@ -151,6 +153,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
+  font-awesome-rails
   jquery-rails
   omniauth
   omniauth-facebook

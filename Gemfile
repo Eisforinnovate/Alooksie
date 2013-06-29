@@ -47,3 +47,6 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
+
+# FontAwesome, for awesome iconographic FontAwesome
+gem "font-awesome-rails"
