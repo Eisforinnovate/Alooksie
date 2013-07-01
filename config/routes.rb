@@ -10,6 +10,8 @@ Alooksie::Application.routes.draw do
 
   get '/logout', :to => 'sessions#destroy'
 
+  get '/users/:id', :to => 'users#show'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

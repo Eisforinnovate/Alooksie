@@ -16,3 +16,5 @@
 //= require zepto
 //= require foundation.min
 //= require custom.modernizr
+
+$(document).foundation();

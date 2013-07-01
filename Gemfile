@@ -23,6 +23,12 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'uglifier', '>= 1.0.3'
+  # Add Foundation Here
+  gem 'compass-rails' # you need this or you get an err
+  gem 'zurb-foundation', '~> 4.0.0'
+
 end
 
 gem 'jquery-rails'
