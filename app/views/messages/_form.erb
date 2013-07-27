@@ -1,0 +1,26 @@
+<% content_for :extra_javascript do %>
+	<script type="text/javascript">
+		$(function() {
+			$('#tags').tagsInput({
+
+			});
+		});
+	</script>
+<% end %>
+
+<%= form_for :message, url: {action: "create"} do |f| %>
+	<fieldset>
+		<legend>Submit a new message</legend>
+		<div class="control-group">
+	    <%= f.label :content %>
+	    <%= f.text_area :content %>
+		</div>
+		<div class="control-group">
+		<%= f.label :hashtags %>
+		<%= f.text_field :hashtags %>
+		</div>
+		<div class="control-group">
+		<%= f.submit class: "button" %>
+		</div>
+	</fieldset>
+<% end %>

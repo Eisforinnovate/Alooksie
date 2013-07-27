@@ -1,26 +1,20 @@
 <!DOCTYPE html>
-<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
-<!--[if lt IE 7 ]> <html class="ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]>    <html class="ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]>    <html class="ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
-  <head>
-  	<meta charset="utf-8" />
+<!--[if lt IE 7 ]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<!-- Uncomment to make IE8 render like IE7 -->
-  	<!-- <meta http-equiv="X-UA-Compatible" content="IE=7" /> -->
+	<title><%= content_for?(:title) ? yield(:title) : "Alooksie" %></title>
+	<%= stylesheet_link_tag "application" %>
+	<%= csrf_meta_tags %>
+	<%= javascript_include_tag "application" %>
+</head>
 
-  	<!-- Set the viewport width to device width for mobile -->
-  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
-  	<%= stylesheet_link_tag    "application" %>
-  	<%= javascript_include_tag "vendor/custom.modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
-
-  <body>
+<body>
 	<div class="contain-to-grid sticky">
 		<nav class="top-bar">
 			<ul class="title-area">
@@ -30,22 +24,25 @@
 						<a href="/">Alooksie</a>
 					</h1>
 				</li>
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
-			<ul class="right">
-				<li>
+			<section class="top-bar-section">
+				<ul>
+					<li><a href="/messages/new/">New Post</a></li>
+					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+				</ul>
+				<ul class="right top-bar-section">
 					<% if session[:user] -%>
-					<a class="button" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a>
-					<a class="button alert" href="/logout"><i class="icon-signout"></i> Logout</a>
+					<li><a class="button" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a></li>
+					<li><a class="button alert" href="/logout"><i class="icon-signout"></i> Logout</a></li>
 					<% else -%>
-					<a class="button" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a> 
+					<li><a class="button" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
 					<% end %>
-				</li>
-			</ul>
+				</ul>
+			</section>
 		</nav>
 	</div>
 
-	<div id="content" class="row">
+	<div id="content" class="row container">
 		<% if flash[:notice] -%>
 		<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
 		<% end -%>
@@ -53,11 +50,12 @@
 		<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
 		<% end -%>
 
-		<pre><%= session.inspect %></pre>
+		<!--<%= debug session.inspect %>-->
 
 		<%= yield %>
 	</div>
-  
-    <%= javascript_include_tag "application" %>
-  </body>
+
+	<%= javascript_include_tag "application" %>
+	<%= yield :extra_javascript %>
+</body>
 </html>

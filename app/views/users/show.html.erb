@@ -2,13 +2,11 @@
 <p><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
 <div>
 	<h3>Messages by this user</h3>
-	<% if @messages_from.length == 0 %>
+	<% if @messages.length == 0 %>
 	<div class="alert-box alert-info">No messages by this user yet!</div>
 	<% else %>
-	<ul class="unstyled message-list">
-		<% @messages_from.each do |message| %>
-		<li><%= message.content %></li>
-		<% end %>
-	</ul>
+	<div class="row">
+		<%= render @user.messages %>
+	</div>
 	<% end %>
 </div>

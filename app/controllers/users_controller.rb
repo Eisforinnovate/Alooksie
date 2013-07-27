@@ -4,6 +4,6 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@messages_from = @user.messages
+  	@messages = @user.messages
   end
 end

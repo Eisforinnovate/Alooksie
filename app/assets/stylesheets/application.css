@@ -12,9 +12,11 @@
  *= require normalize
  *= require foundation
  *= require font-awesome.min
+ *= require jquery.tagsinput.css
  */
 body {
 	background-color: #dbdbdb;
+	padding-top: 60px;
 }
 #content {
 	padding-top: 10px;
