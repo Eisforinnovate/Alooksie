@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class MessagesController < ApplicationController
 	# Display all messages in the system
 	def index
