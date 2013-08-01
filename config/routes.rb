@@ -1,4 +1,5 @@
 Alooksie::Application.routes.draw do
+
   #get "static_pages/home"
   root :to => 'messages#index'
 
@@ -20,6 +21,10 @@ Alooksie::Application.routes.draw do
   # Tags aren't resources; should only have read all available
   get '/tags', :to => 'tags#index'
   post '/tags/', :to => 'tags#create'
+
+  resource :personal_messages
+
+  match '/inbox', :to => 'personal_messages#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

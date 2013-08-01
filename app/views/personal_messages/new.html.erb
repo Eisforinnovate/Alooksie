@@ -1,0 +1,28 @@
+<% if @receiver_id %>
+
+<%= form_for @personal_message do |f| %>
+   <p>
+    Message<br>
+    <% if @content %>
+    <% @content = "RE: " + @content + "\n" %>
+    <%= f.text_area :content, value: @content %>
+
+    <% else %>
+    <%= f.text_area :content %>
+
+    <% end %>
+  </p>
+
+ 	<%= f.hidden_field :receiver_id, value: @receiver_id%>
+ 	<%= f.hidden_field :anonymous, value: @anonymous%>
+
+
+  <p>
+    <%= f.submit class: "button" %>
+  </p>
+<% end %>
+
+<% else %>
+ Recipient ID REQUIRED
+<%= @current_user.name %>
+<% end %>

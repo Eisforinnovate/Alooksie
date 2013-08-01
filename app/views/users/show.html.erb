@@ -1,5 +1,21 @@
 <h2><%= @user.name %></h2>
 <p><a href="mailto:<%= @user.email %>"><%= @user.email %></a></p>
+<% @url = "/personal_messages/new/"
+@url.concat(@user.id.to_s)
+ %>
+
+<p>
+	<%= form_tag("/personal_messages/new", method: "get") do %>
+		<input type="hidden" name="recipient" value="<%= @user.id %>"/>
+		<input type="hidden" name="anonymous" value="false" />
+		<button class="button" type="submit">Message User</button>
+	<% end %>
+	<%= form_tag("/personal_messages/new", method: "get") do %>
+		<input type="hidden" name="recipient" value="<%= @user.id %>"/>
+		<input type="hidden" name="anonymous" value="true" />
+		<button class="button" type="submit">Message User Anonymously</button>
+	<% end %>
+</p>
 <div>
 	<h3>Messages by this user</h3>
 	<% if @messages.length == 0 %>
