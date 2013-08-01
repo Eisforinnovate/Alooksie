@@ -1,7 +1,7 @@
 <h2> Inbox </h2>
 
 <% @my_messages.each do |message| %>
-      <p><%= message.content %>  <%= if(!message.anonymous) 
+      <p><%= message.content %>  <%= if(!message.anonymous) && (message.sender_id) 
       	getSenderName(message.sender_id)
       	end %></p>
       <p><%= form_tag("/personal_messages/new", method: "get") do %>
@@ -10,3 +10,4 @@
 		<button class="button" type="submit">Message User</button>
 	<% end %></p>
 <%end%>
+

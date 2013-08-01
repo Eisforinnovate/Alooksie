@@ -2,12 +2,9 @@ class PersonalMessagesController < ApplicationController
 
 
   def new
-  #	@sender_id = @user.id
-
-  	#temporary until I can get sessions (internet access)
   	@personal_message = PersonalMessage.new
-  	@sender_id = User.find(1).id
 
+  	#Get Parameters
   	@receiver_id = params[:recipient]
   	@content = params[:content]
   	@anonymous = params[:anonymous]
@@ -15,14 +12,19 @@ class PersonalMessagesController < ApplicationController
 
   def create
   	@personal_message = PersonalMessage.new(params[:personal_message])
-  	@personal_message.sender_id = User.find(1).id  #this will change to current user
+  	#temp
+  	@user = User.where("name = ?", session[:user].name).find(1)
+  	@personal_message.sender_id = @user.id
   	@personal_message.save()
 
   end
 
+  #Inbox Screen
   def show
-  	@my_messages = PersonalMessage.find(:all, conditions:["receiver_id = ?",
-          User.find(1).id])  #this will change to current user
+  	#The session doesn't contain ID so we need to find it
+  	@user = User.where("name = ?", session[:user].name).find(1)
+  	@my_messages = PersonalMessage.where("receiver_id = ?", @user.id)
+
 
   end
 
