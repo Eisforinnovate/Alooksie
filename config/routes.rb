@@ -5,17 +5,22 @@ Alooksie::Application.routes.draw do
   #get "personal_message/create"
 
   #get "static_pages/home"
-  root :to => 'static_pages#home'
+  root :to => 'messages#index'
 
   get "users/new"
 
+  # Sessions stuff
   get '/login', :to => 'sessions#new', :as => :login
   match '/auth/:provider/callback', :to => 'sessions#create'
   match '/auth/failure', :to => 'sessions#failure'
 
   get '/logout', :to => 'sessions#destroy'
 
-  get '/users/:id', :to => 'users#show'
+  # Messages
+  resources :messages
+
+  # Users
+  resources :users
 
   resource :personal_messages
 

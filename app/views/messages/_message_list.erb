@@ -1,0 +1,9 @@
+<li>
+	<div class="panel">
+		<div class="message-content"><%= message.content %></div>
+		<ul class="message-actions">
+			<li>Posted <%= time_ago_in_words(message.created_at) %></li>
+			<li>Posted by <%= link_to message.user.name, user_path(message.user) %></li>
+		</ul>
+	</div>
+</li>

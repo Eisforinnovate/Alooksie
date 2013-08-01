@@ -16,5 +16,6 @@
 //= require zepto
 //= require foundation.min
 //= require custom.modernizr
+//= require jquery.tagsinput
 
 $(document).foundation();
