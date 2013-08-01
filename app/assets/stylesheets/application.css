@@ -13,7 +13,8 @@
  *= require foundation
  *= require font-awesome.min
  *= require jquery.tagsinput.css
- */
+ *= require jquery.ui.all
+*/
 body {
 	background-color: #dbdbdb;
 	padding-top: 60px;
@@ -35,4 +36,4 @@ body .container {
      float: none;
      margin-left: auto;
      margin-right: auto;
-} *= require foundation_and_overrides
+}

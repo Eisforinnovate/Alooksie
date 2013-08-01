@@ -1,7 +1,9 @@
 <% content_for :extra_javascript do %>
 	<script type="text/javascript">
-		$(function() {
-			$('#tags').tagsInput({
+		$(document).ready(function() {
+			var tagNode = $('.tags');
+			console.log(tagNode);
+			tagNode.tagsInput({
 
 			});
 		});
@@ -17,7 +19,7 @@
 		</div>
 		<div class="control-group">
 		<%= f.label :hashtags %>
-		<%= f.text_field :hashtags %>
+		<%= f.text_field :hashtags, class: "tags", value: "test, this, field" %>
 		</div>
 		<div class="control-group">
 		<%= f.submit class: "button" %>

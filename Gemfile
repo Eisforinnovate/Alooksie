@@ -8,7 +8,10 @@ gem 'rails', '3.2.11'
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails'
+  gem "better_errors"
+  gem "binding_of_caller"
 end
+
 group :production do
   gem 'pg'
 end
@@ -32,6 +35,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

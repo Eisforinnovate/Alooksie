@@ -17,6 +17,10 @@ Alooksie::Application.routes.draw do
   # Users
   resources :users
 
+  # Tags aren't resources; should only have read all available
+  get '/tags', :to => 'tags#index'
+  post '/tags/', :to => 'tags#create'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

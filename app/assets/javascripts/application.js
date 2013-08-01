@@ -11,11 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery.tagsinput
 //= require jquery_ujs
 //= require_tree .
 //= require zepto
 //= require foundation.min
 //= require custom.modernizr
-//= require jquery.tagsinput
+//= require jquery.ui.all
 
 $(document).foundation();

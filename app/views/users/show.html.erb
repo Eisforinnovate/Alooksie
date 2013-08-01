@@ -5,8 +5,8 @@
 	<% if @messages.length == 0 %>
 	<div class="alert-box alert-info">No messages by this user yet!</div>
 	<% else %>
-	<div class="row">
-		<%= render @user.messages %>
-	</div>
+	<ul class="message-list">
+		<%= render partial: "messages/message_list", collection: @user.messages, as: :message %>
+	</ul>
 	<% end %>
 </div>
