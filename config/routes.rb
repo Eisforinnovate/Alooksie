@@ -1,4 +1,9 @@
 Alooksie::Application.routes.draw do
+
+  #get "personal_message/show"
+
+  #get "personal_message/create"
+
   #get "static_pages/home"
   root :to => 'static_pages#home'
 
@@ -11,6 +16,12 @@ Alooksie::Application.routes.draw do
   get '/logout', :to => 'sessions#destroy'
 
   get '/users/:id', :to => 'users#show'
+
+  resource :personal_messages
+
+  match '/inbox', :to => 'personal_messages#show'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

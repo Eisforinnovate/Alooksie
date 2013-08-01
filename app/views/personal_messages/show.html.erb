@@ -1,0 +1,10 @@
+<h2> Inbox </h2>
+
+<% @my_messages.each do |message| %>
+      <p><%= message.content %> <%= getSenderName(message.sender_id) %></p>
+      <p><%= form_tag("/personal_messages/new", method: "get") do %>
+		<input type="hidden" name="recipient" value="<%= message.sender_id %>"/>
+		<input type='hidden' name="content" value="<%= message.content %>"/>
+		<button class="button" type="submit">Message User</button>
+	<% end %></p>
+<%end%>

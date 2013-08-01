@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130302191814) do
+ActiveRecord::Schema.define(:version => 20130801040835) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -56,6 +56,9 @@ ActiveRecord::Schema.define(:version => 20130302191814) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+# Could not dump table "personal_messages" because of following StandardError
+#   Unknown type 'bool' for column 'anonymous'
 
   create_table "users", :force => true do |t|
     t.string   "name"
