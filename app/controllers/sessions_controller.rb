@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
 	def create
 		auth_hash = request.env['omniauth.auth']
-		#Check if there's an existing authorization
+		# Check if there's an existing authorization
 		@authorization = Authorization.find_by_provider_and_uid(auth_hash["provider"], auth_hash["uid"])
 		if @authorization
 			user = User.find_by_id(@authorization.user_id)
