@@ -10,6 +10,7 @@ class PersonalMessagesController < ApplicationController
 
   	@receiver_id = params[:recipient]
   	@content = params[:content]
+  	@anonymous = params[:anonymous]
   end
 
   def create

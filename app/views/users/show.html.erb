@@ -7,7 +7,13 @@
 <p>
 	<%= form_tag("/personal_messages/new", method: "get") do %>
 		<input type="hidden" name="recipient" value="<%= @user.id %>"/>
+		<input type="hidden" name="anonymous" value="false" />
 		<button class="button" type="submit">Message User</button>
+	<% end %>
+	<%= form_tag("/personal_messages/new", method: "get") do %>
+		<input type="hidden" name="recipient" value="<%= @user.id %>"/>
+		<input type="hidden" name="anonymous" value="true" />
+		<button class="button" type="submit">Message User Anonymously</button>
 	<% end %>
 </p>
 <div>
