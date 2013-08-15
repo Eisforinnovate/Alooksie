@@ -6,6 +6,9 @@
 			<li>Posted by <%= link_to message.user.name, user_path(message.user) %></li>
 			<li><%= button_to 'Delete', {:controller => :messages,
       			:action => 'destroy', :id => message.id }, :method => :delete %></li>
+      		<% if message.other_list.length %>
+      		<li><%= message.other_list %></li>
+      		<% end %>
 		</ul>
 	</div>
 </div>

@@ -3,5 +3,6 @@
 	<ul class="message-actions">
 		<li>Posted <%= time_ago_in_words(message.created_at) %></li>
 		<li>Posted by <%= link_to message.user.name, user_path(message.user) %></li>
+		<li><%= debug message.tag_list %></li>
 	</ul>
 </li>
