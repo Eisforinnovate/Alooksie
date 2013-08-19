@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title><%= content_for?(:title) ? yield(:title) : "Alooksie" %></title>
+	<%= stylesheet_link_tag "application" %>
+	<%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" %>
+	<%= csrf_meta_tags %>
+</head>
+
+<body>
+
+	<div id="content" class="row container">
+		<% if flash[:notice] -%>
+		<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
+		<% end -%>
+		<% if flash[:error] -%>
+		<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
+		<% end -%>
+		<% if flash[:debug] -%>
+		<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
+		<% end -%>
+
+		<!--<%= debug session.inspect %>-->
+
+		<%= yield %>
+	</div>
+
+	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>
+	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+	<%= javascript_include_tag "application" %>
+	<%= yield :extra_javascript %>
+</body>
+</html>

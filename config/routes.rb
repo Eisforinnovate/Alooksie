@@ -1,7 +1,11 @@
 Alooksie::Application.routes.draw do
 
+  resources :beta
+
+
   #get "static_pages/home"
-  root :to => 'messages#index'
+ # root :to => 'messages#index'
+  root :to => 'beta#new'
 
   get "users/new"
 

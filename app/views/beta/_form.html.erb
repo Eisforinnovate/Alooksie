@@ -1,0 +1,25 @@
+<%= form_for(@betum) do |f| %>
+  <% if @betum.errors.any? %>
+    <div id="error_explanation">
+      <h2>There was an error with your request.</h2>
+
+      <ul>
+      <% @betum.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, :required => true %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email, :required => true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Sign up for beta", class: "button" %>
+  </div>
+<% end %>
