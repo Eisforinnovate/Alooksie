@@ -17,6 +17,7 @@ class MessagesController < ApplicationController
 		if session[:user]
 			@post = Message.new(:content => params[:message][:content])
 			@post.user_id = session[:user].id
+			@post.other_list = params[:message][:tags]
 
 			@post.save
 			redirect_to :back

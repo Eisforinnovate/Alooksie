@@ -12,9 +12,8 @@
  *= require normalize
  *= require foundation
  *= require font-awesome.min
- *= require jquery.tagsinput.css
- *= require jquery.ui.all
-*/
+ *= require jquery.tagit.css
+ */
 body {
 	background-color: #dbdbdb;
 	padding-top: 60px;

@@ -1,8 +1,14 @@
 <% content_for :extra_javascript do %>
 	<script type="text/javascript">
-		$(function() {
-			$('.tags').tagsInput({
-
+		$(document).ready(function() {
+			$('#message_tags').tagit({
+				allowDuplicates: false,
+				allowSpaces: false,
+				placeholderText: "Tag your post...",
+				autocomplete: {
+					source: "/tags/"
+				},
+				showAutocompleteOnFocus: true
 			});
 		});
 	</script>
@@ -17,7 +23,7 @@
 		</div>
 		<div class="control-group">
 		<%= f.label :hashtags %>
-		<%= f.text_field :hashtags, class: 'tags' %>
+		<%= f.text_field :tags %>
 		</div>
 		<div class="control-group">
 		<%= f.submit class: "button" %>

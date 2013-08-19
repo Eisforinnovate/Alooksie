@@ -8,4 +8,6 @@ class Message < ActiveRecord::Base
   validates :content, :length => { minimum: 1, maximum: 200 }
   default_scope order: 'messages.created_at DESC'  #defaults to displaying recent first
 
+  acts_as_taggable
+  acts_as_taggable_on :locations, :genders, :others
 end
