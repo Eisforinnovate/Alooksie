@@ -2,13 +2,12 @@
 
 <% @sent_messages.each do |message| %>
 	  <p><% if (message.receiver_id)
-	  			if (message.anonymous || !message.reply)
-	  				@senderName = getSenderName(message.receiver_id) %>
-      				<%= link_to @senderName, user_path(message.receiver_id) %>
-      			<% elsif !message.anonymous && message.reply %>
+	  		 if !message.anonymous && message.reply && hideName?(message.reply) %>
       			<i>User is Veiled</i>
-      			<%
-      			end
+      		<%else
+      				@senderName = getSenderName(message.receiver_id) %>
+      				<%= link_to @senderName, user_path(message.receiver_id) %>
+      		<% end
       	end %>
       	<br>
 	 <%= message.content %></p>
