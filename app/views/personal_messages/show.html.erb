@@ -9,4 +9,7 @@
 		<input type='hidden' name="content" value="<%= message.content %>"/>
 		<button class="button" type="submit">Message User</button>
 	<% end %></p>
+	<% if !message.read
+		setRead(message.id)
+	end %>
 <%end%>

@@ -9,4 +9,10 @@ module PersonalMessagesHelper
 		@id = User.find(:all, conditions:["name = ?",name])
 	end
 
+	def setRead(id)
+		@message = PersonalMessage.find(id)
+		@message.read = true
+		@message.save
+	end
+
 end
