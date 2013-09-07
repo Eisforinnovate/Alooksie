@@ -15,4 +15,15 @@ module PersonalMessagesHelper
 		@message.save
 	end
 
+	#Determines if the recipient name should be hidden from the sent screen
+	def hideName?(reply)
+		@original_message = PersonalMessage.find(reply)
+		if (@original_message.receiver_id == session[:user].id) &&
+			(@original_message.anonymous)
+			return true
+		else
+			return false
+		end
+	end
+
 end

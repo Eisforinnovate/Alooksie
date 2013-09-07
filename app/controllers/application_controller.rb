@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def pm_notifications
-		@pm_notifications = PersonalMessage.where("receiver_id = ? AND read = ?", session[:user].id, false).count
+		if session[:user]
+			@pm_notifications = PersonalMessage.where("receiver_id = ? AND read = ?", session[:user].id, false).count
+		else
+			return nil
+		end
 	end
 
 end
