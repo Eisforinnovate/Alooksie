@@ -29,6 +29,7 @@ Alooksie::Application.routes.draw do
   resource :personal_messages
 
   match '/inbox', :to => 'personal_messages#show'
+  match '/sent', :to => 'personal_messages#sent'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

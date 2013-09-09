@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819221336) do
+ActiveRecord::Schema.define(:version => 20130907021253) do
 
   create_table "authorizations", :force => true do |t|
     t.string   "provider"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20130819221336) do
     t.boolean  "anonymous"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "reply"
+    t.boolean  "read"
   end
 
   create_table "taggings", :force => true do |t|
