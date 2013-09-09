@@ -14,5 +14,14 @@
 //= require zepto
 //= require foundation.min
 //= require custom.modernizr
+//= masonry.pkgd.min.js
 
 $(document).foundation();
+$(document).ready(function(argument) {
+	$('.messages').masonry({
+	  columnWidth: '.grid-sizer',
+	  gutter: '.gutter-sizer',
+	  isFitWidth: true,
+	  itemSelector: '.message'
+	});
+});

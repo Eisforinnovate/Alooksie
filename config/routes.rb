@@ -4,8 +4,8 @@ Alooksie::Application.routes.draw do
 
 
   #get "static_pages/home"
- # root :to => 'messages#index'
-  root :to => 'beta#new'
+  root :to => 'messages#index'
+  #root :to => 'beta#new'
 
   get "users/new"
 

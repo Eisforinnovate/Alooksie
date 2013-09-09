@@ -1,14 +1,16 @@
-<div class="large-3 columns">
-	<div class="panel">
-		<div class="message-content"><%= message.content %></div>
-		<ul class="message-actions">
-			<li>Posted <%= time_ago_in_words(message.created_at) %></li>
-			<li>Posted by <%= link_to message.user.name, user_path(message.user) %></li>
-			<li><%= button_to 'Delete', {:controller => :messages,
-      			:action => 'destroy', :id => message.id }, :method => :delete %></li>
-      		<% if message.other_list.length %>
-      		<li><%= message.other_list %></li>
-      		<% end %>
-		</ul>
-	</div>
+<div class="message panel">
+	<div class="message-content"><%= message.content %></div>
+	<div class="message-info">Posted <%= time_ago_in_words(message.created_at) %> by <%= link_to message.user.name, user_path(message.user) %></div>
+	<% if message.other_list.length %>
+		<ul class="message-tags">      		
+		<%= render partial: "tags/tag_list", collection: message.other_list, as: :tag %>
+      	</ul>
+  	<% end %>
+	<ul class="message-actions">
+		<li><a href="#"><i class="icon-comment"></i> Comments (0)</a></li>
+		<li><a href="#"><i class="icon-thumbs-up"></i> Like</a></li>
+		<li><a href="#"><i class="icon-share"></i> Share</a></li>
+		<!--<li><%= button_to 'Delete', {:controller => :messages,
+  			:action => 'destroy', :id => message.id }, :method => :delete %></li> -->
+	</ul>
 </div>
