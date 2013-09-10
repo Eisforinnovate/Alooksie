@@ -1,40 +1,211 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie6" lang="en"><![endif]-->
-<!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7 ]> <html class="ie ie6 no-js" lang="en-US"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7 no-js" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8 no-js" lang="en-US"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9 no-js" lang="en-US"> <![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en-US"><!--<![endif]-->
 <head>
-	<meta charset="utf-8" />
-	<!-- Set the viewport width to device width for mobile -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	<title>alooksie</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Just another WordPress site"/>
+    <meta name="keywords" content="Prisma Creative"/>
+        <!-- Le fav and touch icons -->
+            <link rel="shortcut icon" href="http://designova.net/themes/wordpress/prisma/wp-content/uploads/2013/08/favicon.ico">
+    
+    	<style>
+		
+		.top_float{background:#673653 !important;}
+		.button-white:hover{background: #673653 !important;}
+		.button{color: #673653 !important; border: #673653 solid 2px !important; }
+		.button:hover, .button.active{background: #673653 !important; color: #FFF !important;}
+		header{background:#673653 !important;}
+		.no-touch #menu li a:hover{border-bottom:#673653 solid 4px;}
+		#menu li:nth-child(6n+6) {	background: #673653 !important;}
+#menu li:nth-child(6n+5) {	background: #744862 !important;}
+#menu li:nth-child(6n+4) {	background: #825a72 !important;}
+#menu li:nth-child(6n+3) {	background: #906c81 !important;}
+#menu li:nth-child(6n+2) {	background: #9e7f91 !important;}
+#menu li:nth-child(6n+1) {	background: #ac91a1 !important;}
 
-	<title><%= content_for?(:title) ? yield(:title) : "Alooksie" %></title>
-	<%= stylesheet_link_tag "application" %>
-	<%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" %>
-	<%= csrf_meta_tags %>
+		.sticky-nav{border-bottom: #673653 solid 1px !important;}
+		.sticky-menu li a:hover, .sticky-menu li a.active{color: #673653 !important;}
+		.sticky-menu li ul li a{color: #FFF; background: #673653 !important; border-bottom: #825a72 solid 1px;}
+		.sticky-menu li ul li:first-child:after {border-bottom-color: #673653 !important;}
+
+
+		.slider-overlay{background: rgba(103,54,83,.7) !important;}
+		.section-heading{ color: #673653 !important; }
+		.page-heading .section-heading{border: #673653 solid 1px !important;}
+		.page-heading .section-heading span{ background: #673653 !important;}
+		.promo-txt{border-bottom: #673653 solid 1px !important; }
+		.promo-txt p{ color: #673653 !important; }
+		.promo-txt .bottom-arrow{border-right: #673653 solid 1px !important; border-bottom: #673653 solid 1px !important;}
+		.highlight-section{background: #673653 !important; color: #FFF !important;}
+		.highlight-section .section-heading{color: #FFF !important;}
+
+		.sti-menu li a h2, .sti-menu li a h3, .sti-icon{color: #673653 !important;}
+		.cbp-ig-grid li > a{color: #673653 !important;}
+		.cbp-ig-grid .cbp-ig-title:before{background: #673653;}
+		.cbp-ig-grid li > a:hover{background: #673653 !important;}
+
+		.hexagon .overlay{background: #673653 !important;}
+		.testimonial .company, .testimonial .client-name, .highlight-section .sub-title, .blog-content-wrap .blog-date{color: #9e7f91 !important;}
+		.testimonial .client-name{border-top: #9e7f91 solid 1px !important;}
+		.blog-content-wrap .blog-date{border-bottom: #9e7f91 solid 1px !important;}
+		.project-overlay{background: rgba(103,54,83,.6) !important;}
+		.cbp-rfgrid li div div{background: rgba(103,54,83,.7) !important;}
+		#fancybox-overlay {	background: #673653 !important; }
+		.blog-content-wrap{background: #673653 !important; }
+		.blog-content-wrap .button-white:hover {color: #673653 !important;  background: #FFF  !important;}
+		.social-wrap{background: #673653 !important; }
+		.social-icon:hover:before{	color: #673653 !important;	background: #FFF !important;}
+		.map-wrap .contact-email, .map-wrap .contact-number{ background: rgba(103,54,83,.8) !important;}
+		#contactForm input, #contactForm textarea{color: #673653 !important; border: #673653 solid 2px !important; }
+		#contactForm .button:hover{background: #673653 !important; color: #FFF !important; text-shadow: none;}
+		footer{background:#673653 !important;}
+		.credits{background: #673653 !important; }
+		.cnt-input::-webkit-input-placeholder {
+		  color: #673653;
+		}
+		.cnt-input:-moz-placeholder {
+		  color: #673653;
+		}
+		.cnt-input:-ms-input-placeholder { /* IE10+ */
+		  color: #673653;
+		}
+
+		#comments-form input, #comments-form textarea, #searchform input[type="text"]{color: #673653 !important; border: #673653 solid 2px !important; }
+		#comments-form #post-comment:hover, #searchform #searchsubmit:hover{background: #673653 !important; color: #FFF !important; text-shadow: none;}
+		#searchform{margin-bottom: 0px;}
+		.sidebar h4{margin-top: 25px;}
+		.sidebar h4:first{margin-top: 0px;}
+		.sidebar ul li a, .tagcloud a {color: #673653 !important;}
+		.post-tags a{color: #673653 !important;}
+
+		.carousel-control{background: #673653 !important; border: #673653 solid 1px !important; border-radius: 0px !important; -webkit-border-radius: 0px !important; -moz-border-radius: 0px !important; -o-border-radius: 0px !important; -ms-border-radius: 0px !important;}
+		.highlight-section .carousel-control{border: #FFF solid 1px !important; background: none !important; }
+		a.accordion-toggle {background: #673653 !important;}
+		a.accordion-toggle.collapsed{color: #673653 !important; border: #673653 solid 1px !important;}
+		.tab-content, .accordion-inner{border: #673653 solid 1px !important;}
+		.nav-tabs li a{border: #673653 solid 1px !important;}
+		.nav-tabs > .active > a, .nav-tabs > .active > a:hover{color: #FFF !important; background: #673653 !important;}
+					@media (min-width: 1200px) {
+			  	.team ul li:nth-child(5){margin-left: 118px;}
+				.team ul li:nth-child(8){margin-left: 236px;}
+				.team ul li:nth-child(10){margin-left: 354px;}
+				.team ul li{margin-bottom: -30px;}
+			}
+		
+		/*calendar*/
+
+		#wp-calendar{
+			width:100%;
+			padding: 0px 0px;
+			margin:0px 0px;
+			border: #673653 solid 2px !important;
+			color: #FFF !important;
+			
+			
+		}
+		#calendar_wrap{
+
+			margin:0px auto;
+			margin-top: 10px;
+			
+		}
+
+		#wp-calendar caption{
+			padding: 10px 5px 10px 5px ;
+			font-size:22px;
+			color:#FFF;
+			text-transform: uppercase;
+			border-bottom: rgba(0,0,0,.2) solid 3px;
+			background: #673653 !important;
+			
+		}
+		#wp-calendar thead{
+			margin-bottom: 10px;
+		}
+		
+		#wp-calendar th{
+			color: #FFF !important;
+			
+		}
+
+		#wp-calendar th, #wp-calendar td{
+			padding: 5px;
+			text-align:center;
+			
+			background: #9e7f91;
+		}
+		#wp-calendar td{
+			color:#673653 !important;
+		}
+
+		#wp-calendar td a{
+
+			padding: 0px;
+			border:none;
+			color:#9e7f91;
+			
+		}
+		#wp-calendar td a:hover{text-shadow:0px 0px 6px #FFF; text-decoration: none;}
+		#wp-calendar td{
+			background:transparent;
+			border:none;
+			color:#CCC;
+		}
+		#wp-calendar td, table#wp-calendar th{
+			padding: 2px 0;
+		}		
+
+	</style>       
+    
+    <!-- HTML5 Shiv -->
+    <!--[if lt IE 9]>
+        <script src="http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/js/html5-3.6-respond-1.1.0.min.js"></script>
+    <![endif]-->
+	<!--[if lt IE 9]>
+       <script>
+          document.createElement('header');
+          document.createElement('nav');
+          document.createElement('section');
+          document.createElement('article');
+          document.createElement('aside');
+          document.createElement('footer');
+       </script>
+    <![endif]-->
+    <!--[if lt IE 9]>
+    <script src="http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/js/IE8.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/ie-fix.css" />
+    <![endif]-->
+        <link rel="alternate" type="application/rss+xml" title="Prisma Creative &raquo; Feed" href="http://designova.net/themes/wordpress/prisma/index.php/feed" />
+<link rel="alternate" type="application/rss+xml" title="Prisma Creative &raquo; Comments Feed" href="http://designova.net/themes/wordpress/prisma/index.php/comments/feed" />
+<link rel="alternate" type="application/rss+xml" title="Prisma Creative &raquo; One Page Comments Feed" href="http://designova.net/themes/wordpress/prisma/index.php/one-page/feed" />
+<link rel='stylesheet' id='bootstrap-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/bootstrap.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-responsive-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/bootstrap-responsive.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='extension-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/extension.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='typography-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/typography.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='nav-style-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/nav_style.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='stimenu-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/stimenu.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='pie-cart-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/jquery.easy-pie-chart.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='icon-grid-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/icon-grid.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='responsive-grid-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/css/responsive-grid.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='fancy-box-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/fancybox/jquery.fancybox.css?ver=3.6' type='text/css' media='all' />
+<link rel='stylesheet' id='style-css'  href='http://designova.net/themes/wordpress/prisma/wp-content/themes/prisma/style.css?ver=3.6' type='text/css' media='all' />
+<script type='text/javascript' src='http://designova.net/themes/wordpress/prisma/wp-includes/js/jquery/jquery.js?ver=1.10.2'></script>
+<script type='text/javascript' src='http://designova.net/themes/wordpress/prisma/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://designova.net/themes/wordpress/prisma/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://designova.net/themes/wordpress/prisma/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Sample Page' href='http://designova.net/themes/wordpress/prisma/index.php/sample-page' />
+<meta name="generator" content="WordPress 3.6" />
+<link rel='canonical' href='http://designova.net/themes/wordpress/prisma/' />
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 </head>
 
-<body>
-
-	<div id="content" class="row container">
-		<% if flash[:notice] -%>
-		<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:error] -%>
-		<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:debug] -%>
-		<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
-		<% end -%>
-
-		<!--<%= debug session.inspect %>-->
-
 		<%= yield %>
-	</div>
 
-	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>
-	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
-	<%= javascript_include_tag "application" %>
-	<%= yield :extra_javascript %>
-</body>
+
 </html>
