@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+<p>Please enter your full name and email (university email preferable).</p>
 <div class ="input-append">
-    <%= f.text_field :name, :required => true, class: 'span8'%>
-    <%= f.text_field :email, :required => true, class: 'span8' %>
+    <%= f.text_field :name, :required => true, class: 'span8 txt-input cnt-input', placeholder: 'Walter Pinkman'%>
+    <%= f.text_field :email, :required => true, class: 'span8 txt-input cnt-input', placeholder: 'heisenberg08@uwo.ca' %>
   <div class="actions">
     <%= f.submit "Sign up for beta", class: "button" %>
   </div>
