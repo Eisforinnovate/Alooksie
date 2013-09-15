@@ -10,55 +10,55 @@
 
 	<title><%= content_for?(:title) ? yield(:title) : "Alooksie" %></title>
 	<%= stylesheet_link_tag "application" %>
-	<%= stylesheet_link_tag "http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" %>
+	<%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" %>
 	<%= csrf_meta_tags %>
 </head>
 
 <body>
-	<div class="contain-to-grid sticky">
-		<nav class="top-bar">
-			<ul class="title-area">
-				<!-- Title Area -->
-				<li class="name">
-					<h1>
-						<a href="/">Alooksie</a>
-					</h1>
-				</li>
+	<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a href="../" class="navbar-brand">Alooksie</a>
+	    </div>
+	    <nav class="collapse navbar-collapse" role="navigation">
+			<ul class="nav navbar-nav pull-right">
+				<% if session[:user] -%>
+				<li><a href="/messages/new/">New Post</a></li>
+				<li><a href="/inbox">Inbox: <%= @pm_notifications %></a></li>
+				<% end %>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+				<% if session[:user] -%>
+				<li><a class="button" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a></li>
+				<li><a href="/logout"><i class="icon-signout"></i> Logout</a></li>
+				<% else -%>
+				<li><a class="button" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
+				<% end %>
 			</ul>
-			<section class="top-bar-section">
-				<ul>
-					<li><a href="/messages/new/">New Post</a></li>
-					<li><a href="/inbox">Inbox: <%= @pm_notifications %></a></li>
-					<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-				</ul>
-				<ul class="right top-bar-section">
-					<% if session[:user] -%>
-					<li><a class="button" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a></li>
-					<li><a class="button alert" href="/logout"><i class="icon-signout"></i> Logout</a></li>
-					<% else -%>
-					<li><a class="button" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
-					<% end %>
-				</ul>
-			</section>
-		</nav>
+	    </nav>
+	  </div>
+	</header>
+
+	<div class="container">
+		<div id="content" class="row container">
+			<% if flash[:notice] -%>
+			<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
+			<% end -%>
+			<% if flash[:error] -%>
+			<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
+			<% end -%>
+			<% if flash[:debug] -%>
+			<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
+			<% end -%>
+			<!--<%= debug session.inspect %>-->
+			<%= yield %>
+		</div>
 	</div>
-
-	<div id="content" class="row container">
-		<% if flash[:notice] -%>
-		<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:error] -%>
-		<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:debug] -%>
-		<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
-		<% end -%>
-
-		<!--<%= debug session.inspect %>-->
-
-		<%= yield %>
-	</div>
-
 	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>
 	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
 	<%= javascript_include_tag "application" %>

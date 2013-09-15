@@ -12,16 +12,18 @@
 //
 //= require_tree
 //= require zepto
-//= require foundation.min
 //= require custom.modernizr
-//= masonry.pkgd.min.js
+//= require jquery.isotope
 
-$(document).foundation();
-$(document).ready(function(argument) {
-	$('.messages').masonry({
-	  columnWidth: '.grid-sizer',
-	  gutter: '.gutter-sizer',
-	  isFitWidth: true,
-	  itemSelector: '.message'
+$(document).ready(function() {
+
+	var messages = $('.messages');
+	
+	messages.isotope({
+		animation: 'best-available',
+		masonry: {
+			
+			gutterWidth: 10
+		}
 	});
 });

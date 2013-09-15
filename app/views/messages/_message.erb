@@ -1,4 +1,4 @@
-<div class="message panel">
+<div class="message panel importance-medium">
 	<div class="message-content"><%= message.content %></div>
 	<div class="message-info">Posted <%= time_ago_in_words(message.created_at) %> by <%= link_to message.user.name, user_path(message.user) %></div>
 	<% if message.other_list.length %>
@@ -6,7 +6,7 @@
 		<%= render partial: "tags/tag_list", collection: message.other_list, as: :tag %>
       	</ul>
   	<% end %>
-	<ul class="message-actions">
+	<ul class="message-actions inline-list">
 		<li><a href="#"><i class="icon-comment"></i> Comments (0)</a></li>
 		<li><a href="#"><i class="icon-thumbs-up"></i> Like</a></li>
 		<li><a href="#"><i class="icon-share"></i> Share</a></li>
