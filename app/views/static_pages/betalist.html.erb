@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>User Number</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Signed Up</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @list.each do |betauser| %>
+    <tr>
+      <td><%= betauser.id %></td>
+      <td><%= betauser.name %></td>
+      <td><%= betauser.email %></td>
+      <td><%= betauser.created_at %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

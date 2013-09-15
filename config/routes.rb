@@ -6,6 +6,7 @@ Alooksie::Application.routes.draw do
   #get "static_pages/home"
  # root :to => 'messages#index'
   root :to => 'beta#new'
+  match '/supersecretlisting', :to => 'static_pages#betalist'
 
   get "users/new"
 
