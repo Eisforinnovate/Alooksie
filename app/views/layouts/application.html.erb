@@ -30,7 +30,6 @@
 			<ul class="nav navbar-nav pull-right">
 				<% if session[:user] -%>
 				<li><a href="/messages/new/">New Post</a></li>
-				<li><a href="/inbox">Inbox: <%= @pm_notifications %></a></li>
 				<% end %>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 				<% if session[:user] -%>
