@@ -3,8 +3,6 @@ class User < ActiveRecord::Base
 	has_many :authorizations
 	has_many :messages
 	has_many :hashtags
-	belongs_to :sender, :class_name => 'PersonalMessage', :foreign_key => 'sender_id'
-  	belongs_to :receiver, :class_name => 'PersonalMessage', :foreign_key => 'receiver_id'
 
 	validates :name, :email, :presence => true
 	validates :email, :uniqueness => true

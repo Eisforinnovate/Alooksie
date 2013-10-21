@@ -27,10 +27,6 @@ Alooksie::Application.routes.draw do
   get '/tags', :to => 'tags#index'
   post '/tags/', :to => 'tags#create'
 
-  resource :personal_messages
-
-  match '/inbox', :to => 'personal_messages#show'
-  match '/sent', :to => 'personal_messages#sent'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
