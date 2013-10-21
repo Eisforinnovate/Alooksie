@@ -7,7 +7,6 @@
 	<meta charset="utf-8" />
 	<!-- Set the viewport width to device width for mobile -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 	<title><%= content_for?(:title) ? yield(:title) : "Alooksie" %></title>
 	<%= stylesheet_link_tag "application" %>
 	<%= stylesheet_link_tag "//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" %>
@@ -15,7 +14,7 @@
 </head>
 
 <body>
-	<header class="navbar navbar-inverse navbar-fixed-top" role="banner">
+	<header class="navbar navbar-fixed-top" role="banner">
 	  <div class="container">
 	    <div class="navbar-header">
 	      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -27,17 +26,18 @@
 	      <a href="../" class="navbar-brand">Alooksie</a>
 	    </div>
 	    <nav class="collapse navbar-collapse" role="navigation">
+			<ul class="nav navbar-nav">
+				<% if session[:user] -%>
+				<li><a href="/messages/new/" class="new"><i class="icon-edit"></i> New Post</a></li>
+				<!-- <li><a href="/inbox">Inbox: <span class="badge"><%= @pm_notifications %></span></a></li> -->
+				<% end %>
+			</ul>
 			<ul class="nav navbar-nav pull-right">
 				<% if session[:user] -%>
-				<li><a href="/messages/new/">New Post</a></li>
-				<li><a href="/inbox">Inbox: <%= @pm_notifications %></a></li>
-				<% end %>
-				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-				<% if session[:user] -%>
-				<li><a class="button" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a></li>
-				<li><a href="/logout"><i class="icon-signout"></i> Logout</a></li>
+				<li><a class="user" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> <%= session[:user]['name'] %></a></li>
+				<li><a href="/logout" class="logout"><i class="icon-signout"></i> Logout</a></li>
 				<% else -%>
-				<li><a class="button" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
+				<li><a class="login" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
 				<% end %>
 			</ul>
 	    </nav>
@@ -57,6 +57,9 @@
 			<% end -%>
 			<!--<%= debug session.inspect %>-->
 			<%= yield %>
+			<script type="text/x-handlebars" data-template-name="application">
+				{{outlet}}
+			</script>
 		</div>
 	</div>
 	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>

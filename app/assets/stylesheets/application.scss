@@ -8,11 +8,189 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require bootstrap
  *= require ace-fonts
  *= require ace-ie
  *= require jquery-ui-1.10.3.custom.min
  *= require ace.min
- *= require global
+ *= require_self
  */
+
+$purple: #5b397f;
+$lightpurple: #9670BF;
+$darkpurple: #311353;
+$darkgray: #5C5C5C;
+$red: #B74635;
+
+/* Global styles */
+body {
+  background: image-url('cubes.png') #dbdbdb;
+  font-family: 'Noto Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Arial, sans-serif;
+  padding-top: 50px;
+}
+h1,h2,h3,h4,h5,h6 {
+  color: inherit;
+}
+a {
+  color: #673653;
+}
+#content {
+  padding-top: 10px;
+}
+.center {
+     float: none;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+/** Navbar **/
+.navbar {
+  border-bottom: 1px solid $purple;
+  background-color: #FFFFFF;
+
+  .nav {
+    border-right: 1px solid $purple;
+    li {
+      border-left: 1px solid $purple;
+      a {
+        color: $darkgray;
+
+        &.logout:hover {
+          background-color: $red;
+        }
+        .badge {
+          background-color: $purple;
+        }
+
+        &:hover {
+          color: #FFFFFF;
+          background-color: $darkpurple;
+
+          .badge {
+            color: $darkpurple;
+            background-color: #FFFFFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**** Isotope CSS3 transitions ****/
+.isotope {
+  -webkit-transition-property: height, width;
+  -moz-transition-property: height, width;
+  -ms-transition-property: height, width;
+  -o-transition-property: height, width;
+  transition-property: height, width;
+
+  .isotope-item {
+    z-index: 2;
+    -webkit-transition-duration: 0.8s;
+    -moz-transition-duration: 0.8s;
+    -ms-transition-duration: 0.8s;
+    -o-transition-duration: 0.8s;
+    transition-duration: 0.8s;    
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    -o-transition-property: -o-transform, opacity;
+    transition-property: transform, opacity;
+  }
+
+  .isotope-hidden.isotope-item {
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /**** disabling Isotope CSS3 transitions ****/
+  .no-transition, .no-transition .isotope-item, .isotope-item.no-transition {
+    -webkit-transition-duration: 0s;
+    -moz-transition-duration: 0s;
+    -ms-transition-duration: 0s;
+    -o-transition-duration: 0s;
+    transition-duration: 0s;
+  }
+}
+
+/* Panel styles */
+.panel {
+  background-color: #F9F9F9;
+  border: 1px solid #FAFAFA;
+}
+
+/* Message panel styles */
+.messages {
+  .message {
+    border-top: 0.5em solid purple;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    float: left;
+    margin-right: 1em;
+    color: #3D3D3D;
+
+    .message-info {
+      list-style: none;
+      font-size: 0.8em;
+      color: #BABABA;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .message-tags {
+      list-style: none;
+      li {
+        float: left;
+        font-size: 0.8em;
+        margin-left: 0.4em;
+      }
+      li:before {
+        content: "#";
+        color: #BABABA;
+      }
+      li:first-child {
+        margin-left: 0;
+      }
+      a {
+        color: #BABABA;
+      }
+      a:hover {
+        color: #9D9D9D;
+      }
+    }
+    .message-actions {
+      clear: both;
+      list-style: none;
+    }
+
+    &.importance-verylow {
+      width: 20%;
+      font-size: 0.6em;
+      opacity: 0.35;
+    }
+    &.importance-low {
+      width: 20%;
+      font-size: 0.8em;
+      opacity: 0.5;
+    }
+    &.importance-medium {
+      width: 45%;
+      font-size: 1em;
+      opacity: 0.75;
+    }
+    &.importance-high {
+      width: 70%;
+      font-size: 1.5em;
+      opacity: 1;
+    }
+    &.importance-veryhigh {
+      width: 100%;
+      font-size: 1.75em;
+      opacity: 1;
+    }
+  }
+  div.message[class*='importance-']:hover {
+    opacity: 1;
+  }
+}
