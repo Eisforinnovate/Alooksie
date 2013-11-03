@@ -30,7 +30,6 @@
 				<% if session[:user] %>
 				<li><a href="/messages/new/" class="new"><i class="icon-edit"></i> New Post</a></li>
 				<!-- <li><a href="/inbox">Inbox: <span class="badge"><%= @pm_notifications %></span></a></li> -->
-				<li><a href="/messages/new/">New Post</a></li>
 				<% end %>
 			</ul>
 			<ul class="nav navbar-nav pull-right">
@@ -56,15 +55,16 @@
 			<% if flash[:debug] -%>
 			<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
 			<% end -%>
-			<!--<%= debug session.inspect %>-->
-			<%= yield %>
 			<script type="text/x-handlebars" data-template-name="application">
 				{{outlet}}
 			</script>
+			<!--<%= debug session.inspect %>-->
+			<%= yield %>
 		</div>
 	</div>
 	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>
 	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+    <%= javascript_include_tag "application" %>
 	<%= yield :extra_javascript %>
 </body>
 </html>
