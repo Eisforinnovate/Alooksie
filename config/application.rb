@@ -58,5 +58,10 @@ module Alooksie
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Handlebars assets
+    config.assets.initialize_on_precompile = false
+    HandlebarsAssets::Config.ember = true
+
   end
 end
