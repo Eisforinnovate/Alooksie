@@ -1,4 +1,4 @@
-Alooksie.User = DS.Model.extend({
+Alooksie.Message = DS.Model.extend({
 	content: DS.attr('string'),
 	userId: DS.attr('number'),
 	createdAt: DS.attr('date'),
