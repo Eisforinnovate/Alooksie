@@ -1,4 +1,4 @@
-Alooksie.Messagehashtag = DS.Model.extend({
+App.Messagehashtag = DS.Model.extend({
 	messageId: DS.attr('number'),
 	hashtagId: DS.attr('number'),
 	createdAt: DS.attr('date'),

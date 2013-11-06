@@ -1,4 +1,7 @@
 App.Hashtag = DS.Model.extend({
 	name: DS.attr('string'),
-	messages: DS.hasMany('message')
+	criteria: DS.attr('string'),
+	createdAt: DS.attr('date'),
+	updatedAt: DS.attr('date'),
+	messagehashtag: DS.hasMany('messagehashtag')
 });
