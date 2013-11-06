@@ -1,0 +1,49 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// the compiled file.
+//
+// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
+// GO AFTER THE REQUIRES BELOW.
+// 
+// Get dependencies first
+//= require ./external/handlebars.js
+//= require ./external/lodash.js
+//= require ./external/ember.js
+//= require ./external/ember-data.js
+//= require ./external/bootstrap-tag.js
+//= require ./external/jquery.isotope.js
+//= require geo
+//
+// Instantiate the application
+// 
+//= require_self
+//= require_tree ./alooksie/templates
+//= require_tree ./alooksie/models
+//= require_tree ./alooksie/controllers
+//= require_tree ./alooksie/views
+//= require_tree ./alooksie/helpers
+
+App = Ember.Application.create();
+App.Store = DS.Store.extend({});
+App.ready = function () {
+}
+
+$(document).ready(function() {
+	var messages = $('.messages');
+	
+	messages.isotope({
+		animation: 'best-available',
+		masonry: {
+			gutterWidth: 10
+		}
+	});
+
+	$('.tag-field').tag({
+		source: ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
+	});
+});
