@@ -15,6 +15,7 @@
 //= require ./external/lodash.js
 //= require ./external/ember.js
 //= require ./external/ember-data.js
+//= require ./external/typeahead.js
 //= require ./external/bootstrap-tag.js
 //= require ./external/jquery.isotope.js
 //= require geo
@@ -24,13 +25,18 @@
 //= require_self
 //= require_tree ./alooksie/templates
 //= require_tree ./alooksie/models
+//= require ./alooksie/controllers/object_controller.js
 //= require_tree ./alooksie/controllers
 //= require_tree ./alooksie/views
 //= require_tree ./alooksie/helpers
 
-App = Ember.Application.create();
+App = Ember.Application.create({
+	rootElement: '#root',
+	LOG_TRANSITIONS: true
+});
 App.Store = DS.Store.extend({});
 App.ready = function () {
+	console.log(Ember.keys(Ember.TEMPLATES));
 }
 
 $(document).ready(function() {
@@ -41,9 +47,5 @@ $(document).ready(function() {
 		masonry: {
 			gutterWidth: 10
 		}
-	});
-
-	$('.tag-field').tag({
-		source: ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]
 	});
 });

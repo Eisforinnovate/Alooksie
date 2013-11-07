@@ -1,5 +1,5 @@
 <% if session[:user] %>
-	<%=	render "messages/form" %>
+	<%	render "messages/form" %>
 <% elsif false %>
 	<div class="center">
       <div class="hero-unit">
@@ -16,5 +16,5 @@
 	</div>
 <% end %>
 <div class="messages">
-  <%= render @messages %>
+  <% render @messages %>
 </div>
