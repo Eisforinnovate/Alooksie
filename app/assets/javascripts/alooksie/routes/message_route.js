@@ -20,12 +20,13 @@ App.MessagesRoute = Ember.Route.extend({
 	 */
 	model: function(params) {
 		// BENLOOKHERE Return an array of message models here
-		return [{content: "hi"}];
+		var store = this.get('store');
+		return store.find('message');
 	},
 	setupController: function(controller, feed) {
 		controller.set('model', feed);
 	},
 	renderTemplate: function() {
-		this.render('alooksie/templates/messages/list');
+		this.render('alooksie/templates/messages/index');
 	}
 })

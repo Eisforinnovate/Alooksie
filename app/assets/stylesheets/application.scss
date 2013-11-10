@@ -17,6 +17,7 @@
  */
 
 $purple: #5b397f;
+$blue: #191555;
 $lightpurple: #9670BF;
 $darkpurple: #311353;
 $darkgray: #5C5C5C;
@@ -26,7 +27,7 @@ $red: #B74635;
 body {
   background: image-url('cubes.png') #dbdbdb;
   font-family: 'Noto Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Arial, sans-serif;
-  padding-top: 50px;
+  padding-top: 60px;
 }
 h1,h2,h3,h4,h5,h6 {
   color: inherit;
@@ -57,6 +58,9 @@ a {
 
         &.logout:hover {
           background-color: $red;
+        }
+        &.login:hover {
+          background-color: $blue;
         }
         .badge {
           background-color: $purple;

@@ -23,8 +23,10 @@
 // Instantiate the application
 // 
 //= require_self
+//= require router.js
 //= require_tree ./alooksie/templates
 //= require_tree ./alooksie/models
+//= require_tree ./alooksie/routes
 //= require ./alooksie/controllers/object_controller.js
 //= require_tree ./alooksie/controllers
 //= require_tree ./alooksie/views
@@ -34,10 +36,12 @@ App = Ember.Application.create({
 	rootElement: '#root',
 	LOG_TRANSITIONS: true
 });
-App.Store = DS.Store.extend({});
+App.Store = DS.Store.extend({
+	adapter: DS.FixtureAdapter
+});
 App.ready = function () {
 	console.log(Ember.keys(Ember.TEMPLATES));
-}
+};
 
 $(document).ready(function() {
 	var messages = $('.messages');
