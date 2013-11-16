@@ -4,12 +4,11 @@ class MessagesController < ApplicationController
 
 	# Display all messages in the system
 	def index
-		render json: Message.all
+		render :json => {:message => Message.all}.to_json()
 	end
 
 	def test
 		@messages = Message.all
-
 	end
 
 	# Display the post new screen

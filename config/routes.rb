@@ -9,7 +9,6 @@ Alooksie::Application.routes.draw do
   match '/supersecretlisting', :to => 'static_pages#betalist'
 
   root :to => 'application#index'
-  match '/*path' => 'application#index'
 
   get "users/new"
 
