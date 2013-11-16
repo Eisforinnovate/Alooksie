@@ -25,6 +25,8 @@ end
 # Allow handlebars templates as part of the asset pipeline
 gem 'handlebars_assets'
 
+#For Ember.js <-> Rails
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', :platforms => :ruby

@@ -13,9 +13,3 @@ App.Message = DS.Model.extend({
 		return 2;
 	}.property('messagehashtag','createdAt')
 });
-
-App.Message.FIXTURES = [
-	{id: 1, content: 'HI!', userId: 0, createdAt: new Date(), updatedAt: new Date(), tags: ['stupid', 'tag', 'here']},
-	{id: 2, content: 'WHAT!', userId: 2, createdAt: new Date(), updatedAt: new Date()},
-	{id: 3, content: 'COOL!', userId: 1, createdAt: new Date(), updatedAt: new Date()}
-]
