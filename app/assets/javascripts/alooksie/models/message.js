@@ -1,8 +1,8 @@
 App.Message = DS.Model.extend({
 	content: DS.attr('string'),
-	userId: DS.attr('number'),
-	// createdAt: DS.attr('string'),
-	// updatedAt: DS.attr('string'),
+	user_id: DS.attr('number'),
+	created_at: DS.attr('string'),
+	updated_at: DS.attr('string'),
 	user: DS.belongsTo('user'),
 	messagehashtag: DS.hasMany('messagehashtag'),
 	priority: DS.attr('number'),
