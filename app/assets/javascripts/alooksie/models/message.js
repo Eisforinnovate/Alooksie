@@ -10,21 +10,34 @@ App.Message = DS.Model.extend({
 	 * Should return the curent message priority here
 	 * @return {[type]} [description]
 	 */
-	classes: function() {
+	classes: function(selected_hashtags) {
+	/*	//Return the middle size if the user has not selected any tags
+		if(selected_hashtags.length < 1)
+			return 3;
+
+		//Get the hashtags from the message
+		var hashtags = this.get('store').find('messagehashtag', params.hashtag_id);
+
+		//Return 2nd smallest size if the message has no hashtags
+		if(hashtags.length < 1)
+			return 2;
+
+		//Determine the number of matching tags
+		var hashtag_match = 0;
+		for(int i = 0; i < selected_hashtags.length; i++){
+			for (int j = 0; j < hashtags.length; j++){
+				if(hashtag[j].id == selected_hashtags[i])
+					hashtag_match++;
+			}
+		}
+		if(hashtag_match == 0)
+			return 1;
+		else if (hashtag_match == 1)
+			return 3;
+		else if (hashtag_match == 2)
+			return 4;
+		else
+			return 5;*/
 		console.log(this);
 	}.property('priority')
 });
-
-App.Message.FIXTURES = [
-	{id: 1, content: 'HI!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), tags: ['stupid', 'tag', 'here']},
-	{id: 2, content: 'WHAT!', userId: 2, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 1},
-	{id: 3, content: 'COOL!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 1},
-	{id: 4, content: 'HI!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 2, tags: ['stupid', 'tag', 'here']},
-	{id: 5, content: 'HI!', userId: 2, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 3, tags: ['stupid', 'tag', 'here']},
-	{id: 6, content: 'HI!', userId: 2, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 4, tags: ['stupid', 'tag', 'here']},
-	{id: 7, content: 'WHAT!', userId: 2, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 1},
-	{id: 8, content: 'COOL!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 1},
-	{id: 9, content: 'HI!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 2, tags: ['stupid', 'tag', 'here']},
-	{id: 10, content: 'HI!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 3, tags: ['stupid', 'tag', 'here']},
-	{id: 11, content: 'HI!', userId: 1, createdAt: moment(new Date()).fromNow(), updatedAt: moment(new Date()).fromNow(), priority: 4, tags: ['stupid', 'tag', 'here']}
-]
