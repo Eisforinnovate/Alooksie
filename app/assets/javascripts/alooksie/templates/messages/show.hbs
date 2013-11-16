@@ -9,8 +9,7 @@
       	</ul>
   	{{/if}}
 	<ul class="message-actions inline-list">
-		<li><a href="#"><i class="icon-comment"></i> Comments ({{comments.length}})</a></li>
-		<li><a href="#"><i class="icon-thumbs-up"></i> Like ({{likes.length}})</a></li>
+		<li><a {{action 'report'}}><i class="icon-flag"></i> Report</a></li>
 		<li><a href="#"><i class="icon-share"></i> Share</a></li>
 	</ul>
 </div>
