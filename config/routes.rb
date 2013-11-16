@@ -5,8 +5,11 @@ Alooksie::Application.routes.draw do
 
   #get "static_pages/home"
  # root :to => 'messages#index'
-  root :to => 'beta#new'
+  #root :to => 'beta#new'
   match '/supersecretlisting', :to => 'static_pages#betalist'
+
+  root :to => 'application#index'
+  match '/*path' => 'application#index'
 
   get "users/new"
 
@@ -26,6 +29,8 @@ Alooksie::Application.routes.draw do
   # Tags aren't resources; should only have read all available
   get '/tags', :to => 'tags#index'
   post '/tags/', :to => 'tags#create'
+
+  match '/test', :to => 'messages#test'
 
 
   # The priority is based upon order of creation:

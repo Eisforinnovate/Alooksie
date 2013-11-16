@@ -18,10 +18,10 @@ App.MessagesRoute = Ember.Route.extend({
 	 * @param {object} params [unused here]
 	 * @return {array} 		  Should return an array of Message models
 	 */
-	model: function(params) {
+	model: function() {
 		// BENLOOKHERE Return an array of message models here
-		var store = this.get('store');
-		return store.find('message');
+		return this.store.findAll('message');
+
 	},
 	setupController: function(controller, feed) {
 		controller.set('model', feed);

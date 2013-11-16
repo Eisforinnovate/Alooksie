@@ -37,9 +37,10 @@ App = Ember.Application.create({
 	rootElement: '#root',
 	LOG_TRANSITIONS: true
 });
-App.Store = DS.Store.extend({
+//= require store
+/*App.Store = DS.Store.extend({
 	adapter: DS.FixtureAdapter
-});
+});*/
 App.ready = function () {
 	console.log(Ember.keys(Ember.TEMPLATES));
 

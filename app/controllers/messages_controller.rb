@@ -1,14 +1,19 @@
 #encoding: utf-8
 
 class MessagesController < ApplicationController
+
 	# Display all messages in the system
 	def index
+		render json: Message.all
+	end
+
+	def test
 		@messages = Message.all
+
 	end
 
 	# Display the post new screen
 	def new
-
 		render "post"
 	end
 
@@ -34,7 +39,8 @@ class MessagesController < ApplicationController
 	# Show a single message
 	def show
 		@message = Message.find(params[:id])
-		render "view"
+		#render "view"
+		render json: @message
 	end
 
 

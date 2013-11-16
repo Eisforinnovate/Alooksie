@@ -10,7 +10,7 @@ App.Message = DS.Model.extend({
 	 * Should return the curent message priority here
 	 * @return {[type]} [description]
 	 */
-	: function() {
+	classes: function() {
 		console.log(this);
 	}.property('priority')
 });

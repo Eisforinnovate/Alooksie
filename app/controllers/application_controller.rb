@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
 		@user ||= session[:user]
 	end
 
+	def index
+	end
+
 end
