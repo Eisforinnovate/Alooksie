@@ -9,5 +9,5 @@ App.Router.map(function () {
 	this.resource('users', function() {
 		this.route('new');
 		this.resource('user', {path: ':message_id'});
-	})
+	});
 });
