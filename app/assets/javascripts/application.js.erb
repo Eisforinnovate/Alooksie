@@ -42,6 +42,10 @@ App = Ember.Application.create({
 /*App.Store = DS.Store.extend({
 	adapter: DS.FixtureAdapter
 });*/
+// Hack to fix the Facebook redirect bullshit
+if(window.location.hash == "#_=_") {
+	window.location.hash = '';
+}
 App.ready = function () {
 	console.log(Ember.keys(Ember.TEMPLATES));
 

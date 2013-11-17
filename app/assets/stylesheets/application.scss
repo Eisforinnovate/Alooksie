@@ -17,7 +17,7 @@
  */
 
 $purple: #5b397f;
-$blue: #191555;
+$blue: #4C66A4;
 $lightpurple: #9670BF;
 $darkpurple: #311353;
 $darkgray: #5C5C5C;
@@ -27,7 +27,7 @@ $red: #B74635;
 body {
   background: image-url('cubes.png') #dbdbdb;
   font-family: 'Noto Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Arial, sans-serif;
-  padding-top: 60px;
+  padding-top: 5.5em;
 }
 h1,h2,h3,h4,h5,h6 {
   color: inherit;
@@ -48,6 +48,7 @@ a {
 .navbar {
   border-bottom: 1px solid $purple;
   background-color: #FFFFFF;
+  max-height: 5em;
 
   .nav {
     border-right: 1px solid $purple;
@@ -128,8 +129,6 @@ a {
   .message {
     border-top: 0.5em solid purple;
     border-radius: 5px;
-    -webkit-box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.25);
-    box-shadow: 4px 5px 0 rgba(0, 0, 0, 0.25);
     padding: 10px;
     float: left;
     margin-right: 1em;
