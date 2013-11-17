@@ -141,6 +141,7 @@ a {
       margin-top: 0.5em;
       margin-bottom: 0.5em;
     }
+    
     .message-tags {
       list-style: none;
       li {
@@ -162,9 +163,12 @@ a {
         color: #9D9D9D;
       }
     }
+
     .message-actions {
-      clear: both;
-      list-style: none;
+
+      .action {
+        border: 0;
+      }
     }
 
     &.importance-verylow {

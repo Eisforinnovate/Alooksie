@@ -1,12 +1,6 @@
-<div {{bind-attr class=":message :panel priority"}}>
+<div {{bind-attr class=":message :panel message.priorityClass"}}>
 	<div class="message-content">{{message.content}}</div>
-<<<<<<< HEAD
 	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{user.name}}{{/link-to}}</div>
-=======
-
-	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{user.name}}{{/link-to}}</div>
-
->>>>>>> 94cf11a47e0946c28e341699ff77ae187a56d388
 	{{#if tags.length}}
 		<ul class="message-tags">
 		{{#each tags}}
@@ -14,8 +8,8 @@
 		{{/each}}
       	</ul>
   	{{/if}}
-	<ul class="message-actions inline-list">
-		<li><a {{action 'report'}}><i class="icon-flag"></i> Report</a></li>
-		<li><a href="#"><i class="icon-share"></i> Share</a></li>
-	</ul>
+	<div class="message-actions btn-group btn-group-justified">
+		<a class="btn btn-default action"><i class="icon-flag"></i> Report</a>
+		<a class="btn btn-default action" href="#"><i class="icon-share"></i> Share</a>
+	</div>
 </div>

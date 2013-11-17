@@ -6,9 +6,6 @@
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
 // 
 // Get dependencies first
 //= require ./external/handlebars.js
@@ -36,23 +33,27 @@
 
 App = Ember.Application.create({
 	rootElement: '#root',
-	LOG_TRANSITIONS: true
+	LOG_TRANSITIONS: true,
+	ready: function() {
+		// Log available templates
+		console.log(Ember.keys(Ember.TEMPLATES));
+
+		// Set up the active user here
+		console.log(this.store.find('user', 0));
+	}
 });
-//= require store
-/*App.Store = DS.Store.extend({
-	adapter: DS.FixtureAdapter
-});*/
+
+App.Store = DS.Store.extend({
+	revision: 13,
+	adapter: DS.RESTAdapter.create()	
+});
+
+App.ApplicationAdapter = DS.ActiveModelAdapter.extend();
+
 // Hack to fix the Facebook redirect bullshit
 if(window.location.hash == "#_=_") {
 	window.location.hash = '';
 }
-App.ready = function () {
-	console.log(Ember.keys(Ember.TEMPLATES));
-
-	// Set up the active user here
-	var store = this.get('store');
-	// this.activeUser = this.Store.find('user', 1);
-};
 
 $(document).ready(function() {
 	var messages = $('.messages');

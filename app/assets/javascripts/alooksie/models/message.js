@@ -10,7 +10,7 @@ App.Message = DS.Model.extend({
 	 * Should return the curent message priority here
 	 * @return {[type]} [description]
 	 */
-	classes: function(selected_hashtags) {
+	priorityClass: function(selected_hashtags) {
 	/*	//Return the middle size if the user has not selected any tags
 		if(selected_hashtags.length < 1)
 			return 3;
@@ -38,6 +38,6 @@ App.Message = DS.Model.extend({
 			return 4;
 		else
 			return 5;*/
-		console.log(this);
+		return 'importance-medium';
 	}.property('priority')
 });

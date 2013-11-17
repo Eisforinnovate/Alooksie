@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
 
 	# Display all messages in the system
 	def index
-		render :json => {:message => Message.all}.to_json()
+		# Note that message should be pluralized for groups of messages or singular for one-ofs
+		render :json => {:messages => Message.all}.to_json()
 	end
 
 	def test
