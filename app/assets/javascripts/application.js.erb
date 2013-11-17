@@ -33,12 +33,15 @@
 //= require_tree ./alooksie/controllers
 //= require_tree ./alooksie/views
 //= require_tree ./alooksie/helpers
+//= require store
+
 
 App = Ember.Application.create({
 	rootElement: '#root',
 	LOG_TRANSITIONS: true
 });
-//= require store
+
+
 /*App.Store = DS.Store.extend({
 	adapter: DS.FixtureAdapter
 });*/
@@ -47,6 +50,16 @@ App.ready = function () {
 
 	// Set up the active user here
 	var store = this.get('store');
+	var attributes = $('meta[name="current-user"]').attr('content');
+    if (attributes) {
+      //object = store.find(App.User, JSON.parse(attributes));
+
+ 	  var id = parseInt(attributes);
+      var user = this.Store.find('user', id);
+      this.activeUser = user;
+     // controller = container.lookup('controller:currentUser').set('content', user);
+      //return container.typeInjection('controller', 'currentUser', 'controller:currentUser');
+    }
 	// this.activeUser = this.Store.find('user', 1);
 };
 
