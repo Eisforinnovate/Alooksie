@@ -1,6 +1,12 @@
 <div {{bind-attr class=":message :panel priority"}}>
 	<div class="message-content">{{message.content}}</div>
+<<<<<<< HEAD
 	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{user.name}}{{/link-to}}</div>
+=======
+
+	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{user.name}}{{/link-to}}</div>
+
+>>>>>>> 94cf11a47e0946c28e341699ff77ae187a56d388
 	{{#if tags.length}}
 		<ul class="message-tags">
 		{{#each tags}}
