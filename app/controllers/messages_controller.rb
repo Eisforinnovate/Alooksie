@@ -39,8 +39,7 @@ class MessagesController < ApplicationController
 	# Show a single message
 	def show
 		@message = Message.find(params[:id])
-		#render "view"
-		render json: @message
+		render :json => {:message => @message}.to_json()
 	end
 
 

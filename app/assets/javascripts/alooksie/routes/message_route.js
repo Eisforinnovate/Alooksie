@@ -5,10 +5,13 @@ App.MessageRoute = Ember.Route.extend({
 	 * @return {Message}       An instance of a Message model
 	 */
 	model: function(params) {
-		// BENLOOKHERE Return a specific message model here
+		return this.store.find('message', params.message_id);
 	},
 	setupController: function(controller, message) {
 		controller.set('model', message);
+	},
+	renderTemplate: function(){
+		this.render('alooksie/templates/messages/show');
 	}
 });
 
@@ -19,7 +22,6 @@ App.MessagesRoute = Ember.Route.extend({
 	 * @return {array} 		  Should return an array of Message models
 	 */
 	model: function() {
-		// BENLOOKHERE Return an array of message models here
 		return this.store.findAll('message');
 
 	},

@@ -30,6 +30,8 @@
 //= require_tree ./alooksie/controllers
 //= require_tree ./alooksie/views
 //= require_tree ./alooksie/helpers
+//= require store
+
 
 App = Ember.Application.create({
 	rootElement: '#root',
@@ -48,12 +50,29 @@ App.Store = DS.Store.extend({
 	adapter: DS.RESTAdapter.create()	
 });
 
+
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend();
 
+/*App.Store = DS.Store.extend({
+	adapter: DS.FixtureAdapter
+});*/
 // Hack to fix the Facebook redirect bullshit
 if(window.location.hash == "#_=_") {
 	window.location.hash = '';
 }
+App.ready = function () {
+	console.log(Ember.keys(Ember.TEMPLATES));
+
+	// Set up the active user here
+	var store = this.get('store');
+	var userID = $('meta[name="current-user"]').attr('content');
+    if (userID) {
+    	this.activeUser = parseInt(userID);
+		// this.activeUser = this.Store.find('user', parseInt(userID));
+    } else {
+    	this.activeUser = null;
+    }
+};
 
 $(document).ready(function() {
 	var messages = $('.messages');
