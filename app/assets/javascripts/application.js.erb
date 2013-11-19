@@ -38,7 +38,7 @@ App = Ember.Application.create({
 	LOG_TRANSITIONS: true,
 	ready: function() {
 		// Log available templates
-		console.log(Ember.keys(Ember.TEMPLATES));
+		console.log(Ember.TEMPLATES);
 
 		// Set up the active user here
 		console.log(this.store.find('user', 0));

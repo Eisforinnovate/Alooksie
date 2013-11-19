@@ -3,7 +3,7 @@ App.Message = DS.Model.extend({
 	user_id: DS.attr('number'),
 	created_at: DS.attr('string'),
 	updated_at: DS.attr('string'),
-	user: DS.belongsTo('user'),
+	user: DS.belongsTo('user', {async: true}),
 	messagehashtag: DS.hasMany('messagehashtag'),
 	priority: DS.attr('number'),
 	/**

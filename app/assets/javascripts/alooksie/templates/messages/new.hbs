@@ -1,11 +1,9 @@
-<h1>Create Post</h1>
-<form>
+<form role="form">
   <fieldset>
-    <div>
+    <div class="form-group">
       <label {{bindAttr for="contentField.field_id"}}>Content</label>
-      {{view Ember.TextField valueBinding='content' name='content' viewName='contentField'}}
+      {{view Ember.TextField valueBinding='content' class='form-control' name='content' viewName='contentField'}}
     </div>
-    <a href='#' {{action save}} class='btn btn-success'>Submit</a>
+    <a {{action save}} class='btn btn-success'>Submit</a>
   </fieldset>
 </form>
-<div class='page-header'></div>

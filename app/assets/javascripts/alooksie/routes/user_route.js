@@ -1,5 +1,5 @@
-App.UsersRoute = Ember.Route.extend({
+App.UsersIndexRoute = Ember.Route.extend({
 	model: function() {
-		this.store.findAll('user');
+		return this.store.findAll('user');
 	}
 });

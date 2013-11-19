@@ -33,7 +33,7 @@ App.MessagesRoute = Ember.Route.extend({
 	}
 });
 
-App.MessagesNewRoute = App.MessagesRoute.extend({
+App.MessagesNewRoute = Ember.Route.extend({
 	model: function(){
 		//EMBER Y U KEEP CHANGING???
 		//App.Message.createRecord();
