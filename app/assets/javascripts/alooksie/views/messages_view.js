@@ -8,3 +8,7 @@ App.MessagesView = Ember.View.extend({
 		console.log('hi');
 	}
 });
+
+App.MessagesNewView = Ember.View.extend({
+	templateName: "alooksie/templates/messages/new"
+});
