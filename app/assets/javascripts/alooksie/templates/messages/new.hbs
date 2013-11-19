@@ -1,0 +1,11 @@
+<h1>Create Post</h1>
+<form>
+  <fieldset>
+    <div>
+      <label {{bindAttr for="contentField.field_id"}}>Content</label>
+      {{view Ember.TextField valueBinding='content' name='content' viewName='contentField'}}
+    </div>
+    <a href='#' {{action save}} class='btn btn-success'>Submit</a>
+  </fieldset>
+</form>
+<div class='page-header'></div>

@@ -52,17 +52,9 @@ App.Store = DS.Store.extend({
 });
 
 
-
-// Set up the active user here
-/*var userID = $('meta[name="current-user"]').attr('content');
-if (userID) {
-	//this.activeUser = parseInt(userID);
-	this.activeUser = this.store.find('user', parseInt(userID));
-} else {
-	this.activeUser = null;
-}*/
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend();
 
+//Get the current user, inject into controller
 Ember.Application.initializer({
   name: 'currentUser',
   initialize: function(container) {

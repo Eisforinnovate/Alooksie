@@ -8,6 +8,6 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@messages = @user.messages
+  	render :json => {:user => @user}.to_json()
   end
 end
