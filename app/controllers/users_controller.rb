@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def index
-  	render :json => {:user => User.all}.to_json()
+  	render :json => {:users => User.all}.to_json()
   end
 
   def show

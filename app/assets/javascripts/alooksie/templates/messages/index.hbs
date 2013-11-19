@@ -3,5 +3,9 @@
     {{render "message" message}}
   {{/each}}
 </div>
-<div>{{currentUser.name}}
-peepee
+<div>
+ {{#if controllers.currentUser.isSignedIn}}
+ UserID:  {{controllers.currentUser.id}}
+ {{else}}
+ Not logged in
+{{/if}}

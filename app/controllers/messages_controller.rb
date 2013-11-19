@@ -25,7 +25,8 @@ class MessagesController < ApplicationController
 			@post.other_list = params[:message][:tags]
 
 			@post.save
-			redirect_to :back
+			#redirect_to :back
+			render json: @post, status: :created
 		end
 	end
 

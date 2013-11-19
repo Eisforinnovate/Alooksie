@@ -3,5 +3,5 @@ App.MessageController = App.ObjectController.extend({
 });
 
 App.MessagesController = Ember.ArrayController.extend({
-	
+	needs: ['currentUser']
 });

@@ -42,6 +42,7 @@ App = Ember.Application.create({
 
 		// Set up the active user here
 		console.log(this.store.find('user', 0));
+		console.log('poo');
 	}
 });
 
@@ -51,7 +52,31 @@ App.Store = DS.Store.extend({
 });
 
 
+
+// Set up the active user here
+/*var userID = $('meta[name="current-user"]').attr('content');
+if (userID) {
+	//this.activeUser = parseInt(userID);
+	this.activeUser = this.store.find('user', parseInt(userID));
+} else {
+	this.activeUser = null;
+}*/
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend();
+
+Ember.Application.initializer({
+  name: 'currentUser',
+  initialize: function(container) {
+
+    store = container.lookup('store:main');
+    var userID = $('meta[name="current-user"]').attr('content');
+	if (userID) {
+		controller = container.lookup('controller:currentUser').set('isSignedIn', true);
+		controller = container.lookup('controller:currentUser').set('id', userID);
+	} else {
+		controller = container.lookup('controller:currentUser').set('isSignedIn', false);
+  	}
+  }
+});
 
 /*App.Store = DS.Store.extend({
 	adapter: DS.FixtureAdapter
@@ -62,17 +87,10 @@ if(window.location.hash == "#_=_") {
 }
 App.ready = function () {
 	console.log(Ember.keys(Ember.TEMPLATES));
-
-	// Set up the active user here
-	var store = this.get('store');
-	var userID = $('meta[name="current-user"]').attr('content');
-    if (userID) {
-    	this.activeUser = parseInt(userID);
-		// this.activeUser = this.Store.find('user', parseInt(userID));
-    } else {
-    	this.activeUser = null;
-    }
 };
+
+
+
 
 $(document).ready(function() {
 	var messages = $('.messages');
