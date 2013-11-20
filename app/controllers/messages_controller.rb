@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
 
 			@post.save
 			#redirect_to :back
-			render json: @post, status: :created
+			#render json: @post, status: :created
 		end
 	end
 
