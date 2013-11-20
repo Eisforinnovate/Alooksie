@@ -3,12 +3,17 @@ App.MessageView = Ember.View.extend({
 });
 
 App.MessagesView = Ember.View.extend({
-	templateName: "alooksie/templates/messages/index",
+	templateName: "alooksie/templates/messages/list",
 	didInsertElement: function() {
 		console.log('hi');
 	}
 });
 
 App.MessagesNewView = Ember.View.extend({
-	templateName: "alooksie/templates/messages/new"
+	templateName: "alooksie/templates/messages/new",
+	actions: {
+		save: function() {
+			console.log(arguments);
+		}
+	}
 });

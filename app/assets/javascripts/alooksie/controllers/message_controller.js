@@ -7,10 +7,13 @@ App.MessagesController = Ember.ArrayController.extend({
 });
 
 App.MessagesNewController = Ember.ObjectController.extend({
-	save: function(){
-		var _this = this;
-		return this.content.save().then(function(){
-			return _this.transitionToRoute('messages.index');
-		});
+	actions: {
+		save: function(){
+			var self = this;
+			// return this.content.save().then(function(){
+			// 	return _this.transitionToRoute('messages.index');
+			// });
+		}		
 	}
+
 });

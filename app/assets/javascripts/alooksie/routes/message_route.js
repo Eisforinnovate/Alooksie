@@ -1,3 +1,23 @@
+// Core messages route
+App.MessagesRoute = Ember.Route.extend({
+	/**
+	 * Return a 
+	 * @param {object} params [unused here]
+	 * @return {array} 		  Should return an array of Message models
+	 */
+	model: function() {
+		return this.store.findAll('message');
+
+	},
+	setupController: function(controller, feed) {
+		controller.set('model', feed);
+	},
+	// Render the main template
+	renderTemplate: function() {
+		this.render('alooksie/templates/messages/main');
+	}
+});
+
 App.MessageRoute = Ember.Route.extend({
 	/**
 	 * Returns a message model
@@ -15,7 +35,7 @@ App.MessageRoute = Ember.Route.extend({
 	}
 });
 
-App.MessagesRoute = Ember.Route.extend({
+App.MessagesIndexRoute = Ember.Route.extend({
 	/**
 	 * Return a 
 	 * @param {object} params [unused here]
@@ -25,18 +45,14 @@ App.MessagesRoute = Ember.Route.extend({
 		return this.store.findAll('message');
 
 	},
-	setupController: function(controller, feed) {
-		controller.set('model', feed);
-	},
 	renderTemplate: function() {
 		this.render('alooksie/templates/messages/index');
 	}
-});
+})
+
 
 App.MessagesNewRoute = Ember.Route.extend({
 	model: function(){
-		//EMBER Y U KEEP CHANGING???
-		//App.Message.createRecord();
 		this.store.createRecord('message');
 	},
 	setupController: function(controller, model){
