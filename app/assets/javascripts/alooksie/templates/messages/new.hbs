@@ -2,8 +2,11 @@
   <fieldset>
     <div class="form-group">
       <label {{bindAttr for="contentField.field_id"}}>Content</label>
-      {{view Ember.TextField valueBinding='content' class='form-control' name='content' viewName='contentField'}}
+      {{view Ember.TextArea valueBinding='content' class='form-control' name='content' viewName='contentField'}}
     </div>
-    <a {{action save}} class='btn btn-success'>Submit</a>
+    <div class="btn-group">
+	    <button type="submit" {{action "save"}} class="btn btn-success">Submit</button>
+	    <button class="btn btn-dancer">Cancel</button>
+    </div>
   </fieldset>
 </form>

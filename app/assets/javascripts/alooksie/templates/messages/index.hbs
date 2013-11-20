@@ -3,10 +3,3 @@
     {{render "message" message}}
   {{/each}}
 </div>
-<div>
- {{#if controllers.currentUser.isSignedIn}}
- UserID:  {{controllers.currentUser.id}}
- {{else}}
- Not logged in
-{{/if}}
-{{outlet}}
