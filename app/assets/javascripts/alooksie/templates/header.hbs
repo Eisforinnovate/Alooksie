@@ -11,7 +11,7 @@
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
 		<ul class="nav navbar-nav">
-			<li><a href="/messages/new/" class="new"><i class="icon-edit"></i> New Post</a></li>
+			<li>{{#link-to 'messages.new'}}<i class="icon-edit"></i> New Post{{/link-to}}</li>
 		</ul>
 		<ul class="nav navbar-nav pull-right">
 			<li><a class="user" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> Username</a></li>
