@@ -36,6 +36,7 @@ Alooksie::Application.routes.draw do
 
   # Users
   resources :users
+  resources :userhashtags, except: [:edit, :new, :delete]
 
   # Tags aren't resources; should only have read all available
   get '/tags', :to => 'tags#index'

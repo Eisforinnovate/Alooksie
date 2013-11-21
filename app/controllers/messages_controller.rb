@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 	def create
 		if session[:user]
 			@post = Message.new(:content => params[:message][:content])
-			logger.info "Params: #{params[:message][:content]}"
+			logger.debug "Params: #{params[:message][:content]}"
 			@post.user_id = session[:user].id
 			@post.other_list = params[:message][:tags]
 
