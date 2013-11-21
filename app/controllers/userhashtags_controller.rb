@@ -8,8 +8,9 @@ class UserhashtagsController < ApplicationController
 
 			@uhashtags.each do |hashtag|
 				h = Hashtag.find(hashtag.hashtag_id)
-				logger.debug "Our hashtags are: #{h.name}"
-				hashtag.name = h
+				hashtag.name = h.name
+				#Need the below code to return the proper JSON
+				hashtag["name"] = h.name
 			end
 
 			render :json => {:userhashtags => @uhashtags}.to_json()

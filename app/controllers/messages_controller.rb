@@ -5,7 +5,16 @@ class MessagesController < ApplicationController
 	# Display all messages in the system
 	def index
 		# Note that message should be pluralized for groups of messages or singular for one-ofs
-		render :json => {:messages => Message.all}.to_json()
+
+		@messages = Message.all
+
+		@messages.each do |message|
+			u = User.find(message.user_id)
+			message.name = u.name
+			message["name"] = u.name
+		end
+
+		render :json => {:messages => @messages}.to_json()
 	end
 
 	def test
