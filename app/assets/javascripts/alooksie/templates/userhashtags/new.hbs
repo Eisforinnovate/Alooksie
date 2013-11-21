@@ -1,0 +1,11 @@
+<form role="form">
+  <fieldset>
+    <div class="form-group">
+      {{view Ember.TextField valueBinding='name' class='form-control' name='name' viewName='nameField'}}
+    </div>
+    <div class="btn-group">
+	    <button type="submit" {{action "save"}} class="btn btn-success">Submit</button>
+	    <button class="btn btn-dancer">Cancel</button>
+    </div>
+  </fieldset>
+</form>

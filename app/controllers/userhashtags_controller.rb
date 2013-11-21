@@ -19,4 +19,30 @@ class UserhashtagsController < ApplicationController
 		end
 	end
 
+	#Create a new hashtag link.  Create the hashtag if it doesn't exist
+	def create
+		if session[:user]
+			@userhashtag = Userhashtag.new()
+			@userhashtag.user_id = session[:user].id
+
+			#Get the hashtag ID from the name, create if doesn't exist
+			@hashtag = Hashtag.find(:first, conditions:["name = ?",params[:userhashtag][:name]])
+			if (!@hashtag)
+				h = Hashtag.new()
+				h.name = params[:userhashtag][:name]
+				h.save
+				#Now get the hashtag
+				@hashtag = Hashtag.find(:first, conditions:["name = ?",params[:userhashtag][:name]])
+			end
+
+			@userhashtag.hashtag_id = @hashtag.id
+			@userhashtag.save
+
+			render json: @userhashtag, status: :created
+
+			#render json: @post, status: :created
+			#redirect_to :back
+		end
+	end
+
 end
