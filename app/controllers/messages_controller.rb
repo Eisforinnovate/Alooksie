@@ -9,7 +9,8 @@ class MessagesController < ApplicationController
 	end
 
 	def test
-		@messages = Message.all
+		#@messages = Message.all
+		logger.info "Logger through test: #{session[:user]}"
 	end
 
 	# Display the post new screen
@@ -19,8 +20,13 @@ class MessagesController < ApplicationController
 
 	# Actually create a new message and then send the user back over to their new post
 	def create
+		logger.info "testing boobs!!!!"
+		logger.info "session info: #{session[:user]}"
+		logger.info "session id info: #{session[:user_id]}"
+		logger.info "#{@user}"
 		if session[:user]
 			@post = Message.new(:content => params[:message][:content])
+			logger.info "Params: #{params[:message][:content]}"
 			@post.user_id = session[:user].id
 			@post.other_list = params[:message][:tags]
 

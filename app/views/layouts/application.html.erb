@@ -13,6 +13,7 @@
 	<%= csrf_meta_tags %>
 	<% if session[:user] %>
 		<meta name="current-user" content="<%= session[:user].id %> " />
+		<% logger.info "Current Session Info: #{session[:user]}" %>
 	<% end %>
 </head>
 

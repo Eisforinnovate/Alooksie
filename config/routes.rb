@@ -32,7 +32,7 @@ Alooksie::Application.routes.draw do
   get '/logout', :to => 'sessions#destroy'
 
   # Messages
-  resources :messages, :except => :edit, :constraints => FormatTest.new(:json)
+  resources :messages #, :except => :edit,  :constraints => FormatTest.new(:json)
 
   # Users
   resources :users

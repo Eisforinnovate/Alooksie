@@ -1,6 +1,5 @@
 App.Message = DS.Model.extend({
 	content: DS.attr('string'),
-	stuff: DS.attr('string'),
 	user_id: DS.attr('number'),
 	created_at: DS.attr('string'),
 	updated_at: DS.attr('string'),
