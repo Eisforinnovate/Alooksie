@@ -53,9 +53,12 @@ App.MessagesIndexRoute = Ember.Route.extend({
 
 App.MessagesNewRoute = Ember.Route.extend({
 	model: function(){
-		this.store.createRecord('message');
+		return this.store.createRecord('message');
 	},
 	setupController: function(controller, model){
-		controller.set('content', model);
+		controller.set('model', model);
+	},
+	renderTemplate: function() {
+		this.render('alooksie/templates/messages/new');
 	}
 });

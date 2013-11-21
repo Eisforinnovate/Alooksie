@@ -5,4 +5,5 @@ class Hashtag < ActiveRecord::Base
   validates :criteria, presence: true
 
   has_many :messagehashtags
+  has_many :userhashtags
 end
