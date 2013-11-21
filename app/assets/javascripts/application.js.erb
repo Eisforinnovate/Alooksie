@@ -105,4 +105,11 @@ $(document).ready(function() {
 			gutterWidth: 10
 		}
 	});
+
+	//Embeds the CSRF token into the header, required pass forgery check
+	var token = $('meta[name="csrf-token"]').attr('content');
+	$.ajaxPrefilter(function(options, originalOptions, xhr) {
+  		return xhr.setRequestHeader('X-CSRF-Token', token);
+	});
+
 });
