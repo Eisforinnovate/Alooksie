@@ -1,4 +1,4 @@
-<div {{bind-attr class=":message :panel message.priorityClass"}}>
+<div {{bind-attr class=":message :panel message.priority"}}>
 	<div class="message-content">{{message.content}}</div>
 	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{message.name}}{{/link-to}}</div>
 	{{#if tags.length}}
