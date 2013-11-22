@@ -10,4 +10,7 @@ App.Router.map(function () {
 		this.route('new');
 		this.resource('user', {path: ':user_id'});
 	});
+	this.resource('userhashtags', function(){
+		this.route('new');
+	});
 });

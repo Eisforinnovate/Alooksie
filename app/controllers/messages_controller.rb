@@ -5,11 +5,21 @@ class MessagesController < ApplicationController
 	# Display all messages in the system
 	def index
 		# Note that message should be pluralized for groups of messages or singular for one-ofs
-		render :json => {:messages => Message.all}.to_json()
+
+		@messages = Message.all
+
+		@messages.each do |message|
+			u = User.find(message.user_id)
+			message.name = u.name
+			message["name"] = u.name
+		end
+
+		render :json => {:messages => @messages}.to_json()
 	end
 
 	def test
-		@messages = Message.all
+		#@messages = Message.all
+		logger.info "Logger through test: #{session[:user]}"
 	end
 
 	# Display the post new screen
@@ -21,12 +31,13 @@ class MessagesController < ApplicationController
 	def create
 		if session[:user]
 			@post = Message.new(:content => params[:message][:content])
+			logger.debug "Params: #{params[:message][:content]}"
 			@post.user_id = session[:user].id
 			@post.other_list = params[:message][:tags]
 
 			@post.save
+			render json: @post, status: :created
 			#redirect_to :back
-			#render json: @post, status: :created
 		end
 	end
 

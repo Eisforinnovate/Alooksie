@@ -39,8 +39,11 @@ App = Ember.Application.create({
 	ready: function() {
 		// Log available templates
 		console.log(Ember.TEMPLATES);
+<<<<<<< HEAD
 
 		// Set up the active user here
+=======
+>>>>>>> 52f33dbcd897ea077165159f1c30f2579fbafde0
 	}
 });
 
@@ -70,9 +73,7 @@ Ember.Application.initializer({
   }
 });
 
-/*App.Store = DS.Store.extend({
-	adapter: DS.FixtureAdapter
-});*/
+
 // Hack to fix the Facebook redirect bullshit
 if(window.location.hash == "#_=_") {
 	window.location.hash = '';
@@ -80,8 +81,6 @@ if(window.location.hash == "#_=_") {
 App.ready = function () {
 	console.log(Ember.keys(Ember.TEMPLATES));
 };
-
-
 
 
 $(document).ready(function() {
@@ -93,4 +92,11 @@ $(document).ready(function() {
 			gutterWidth: 10
 		}
 	});
+
+	//Embeds the CSRF token into the header, required to pass forgery check
+	var token = $('meta[name="csrf-token"]').attr('content');
+	$.ajaxPrefilter(function(options, originalOptions, xhr) {
+  		return xhr.setRequestHeader('X-CSRF-Token', token);
+	});
+
 });

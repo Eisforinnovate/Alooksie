@@ -32,10 +32,11 @@ Alooksie::Application.routes.draw do
   get '/logout', :to => 'sessions#destroy'
 
   # Messages
-  resources :messages, :except => :edit, :constraints => FormatTest.new(:json)
+  resources :messages #, :except => :edit,  :constraints => FormatTest.new(:json)
 
   # Users
   resources :users
+  resources :userhashtags, except: [:edit, :new, :delete]
 
   # Tags aren't resources; should only have read all available
   get '/tags', :to => 'tags#index'

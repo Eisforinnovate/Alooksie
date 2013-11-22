@@ -1,5 +1,7 @@
 class Message < ActiveRecord::Base
   attr_accessible :content
+  attr_accessor :name
+
   belongs_to :user
   has_many :notifications
   has_many :messagematchs
