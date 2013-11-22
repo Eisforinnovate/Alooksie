@@ -41,8 +41,6 @@ App = Ember.Application.create({
 		console.log(Ember.TEMPLATES);
 
 		// Set up the active user here
-		console.log(this.store.find('user', 0));
-		console.log('poo');
 	}
 });
 
@@ -64,7 +62,9 @@ Ember.Application.initializer({
 	if (userID) {
 		controller = container.lookup('controller:currentUser').set('isSignedIn', true);
 		controller = container.lookup('controller:currentUser').set('id', userID);
+		App.currentUser = userID;
 	} else {
+		App.currentUser = null;
 		controller = container.lookup('controller:currentUser').set('isSignedIn', false);
   	}
   }

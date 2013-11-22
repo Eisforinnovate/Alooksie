@@ -7,16 +7,19 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="../" class="navbar-brand">Alooksie</a>
+      {{#link-to 'messages' classNames="navbar-brand"}}Alooksie{{/link-to}}
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
 		<ul class="nav navbar-nav">
 			<li>{{#link-to 'messages.new'}}<i class="icon-edit"></i> New Post{{/link-to}}</li>
 		</ul>
 		<ul class="nav navbar-nav pull-right">
-			<li><a class="user" href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> Username</a></li>
-			<li><a class="logout" href="/logout"><i class="icon-signout"></i> Logout</a></li>
+      {{#if App.currentUser}}
+      <li>{{#link-to 'user' App.currentUser}}<i class="icon-user"></i> Me{{/link-to}}</li>
+      <li><a class="logout" href="/logout"><i class="icon-signout"></i> Logout</a></li>
+      {{else}}
 			<li><a class="login" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
+      {{/if}}
 		</ul>
     </nav>
   </div>

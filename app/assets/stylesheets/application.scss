@@ -50,6 +50,12 @@ a {
   background-color: #FFFFFF;
   max-height: 5em;
 
+  .navbar-header {
+    .brand {
+      color: $darkpurple;
+    }  
+  }
+
   .nav {
     border-right: 1px solid $purple;
     li {
@@ -67,7 +73,7 @@ a {
           background-color: $purple;
         }
 
-        &:hover {
+        &:hover, &.active {
           color: #FFFFFF;
           background-color: $darkpurple;
 
@@ -127,8 +133,8 @@ a {
 /* Message panel styles */
 .messages {
   .message {
-    border-top: 0.5em solid purple;
-    border-radius: 5px;
+    border: 0.15em solid purple;
+    border-radius: 0.2em;
     padding: 10px;
     float: left;
     margin-right: 1em;
