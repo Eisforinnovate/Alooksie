@@ -1,8 +1,6 @@
 <div class="messages">
   {{#each userhashtag in controller}}
-  	{{#if userhashtag.name}}
-    	{{userhashtag.name}} <button class="btn btn-dancer">Remove</button><br>
-    {{/if}}
+  	{{render "userhashtag" userhashtag}}
   {{/each}}
  {{#link-to 'userhashtags.new'}} Add Hashtag{{/link-to}}
 </div>

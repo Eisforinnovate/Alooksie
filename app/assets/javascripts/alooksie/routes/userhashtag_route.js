@@ -29,3 +29,15 @@ App.UserhashtagsNewRoute = Ember.Route.extend({
 		this.render('alooksie/templates/userhashtags/new');
 	}
 });
+
+App.UserhashtagRoute = Ember.Route.extend({
+	model: function(params){
+		return this.store.find('userhashtag', params.userhashtag_id);
+	},
+	setupController: function(controller, userhashtag){
+		controller.set('model', userhashtag);
+	},
+	renderTemplate: function(){
+		this.render('alooksie/templates/userhashtags/show');
+	}
+})
