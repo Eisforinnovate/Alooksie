@@ -72,8 +72,7 @@ class MessagesController < ApplicationController
 	def puzzleSize(id)
 
 		if !session[:user]
-			#return 0
-			return 'importance-verylow'
+			return 0
 		end
 
 		#It is silly to call these for each message but I'm too lazy and will fix this later #YOLO
@@ -81,8 +80,7 @@ class MessagesController < ApplicationController
 
 		#Return the middle size if the user has not selected any tags
 		if selected_hashtags.nil? || selected_hashtags.empty?
-			#return 3
-			return 'importance-medium'
+			return 3
 		end
 
 		#Get the hashtags from the message
@@ -92,8 +90,7 @@ class MessagesController < ApplicationController
 
 		#Return the 2nd smallest size if the message has no hashtags
 		if hashtag_ids.empty?
-			#return 2
-			return 'importance-low'
+			return 2
 		end
 
 		#If hashtag_ids only contains one element, is it still an array on just an integer?
@@ -111,17 +108,13 @@ class MessagesController < ApplicationController
 
 		#Return size based on matches
 		if hashtag_match == 0
-			#return 1
-			return 'importance-verylow'
+			return 1
 		elsif hashtag_match == 1
-			#return 3
-			return 'importance-medium'
+			return 3
 		elsif hashtag_match == 2
-			#return 4
-			return 'importance-high'
+			return 4
 		else
-			#return 5
-			return 'importance-veryhigh'
+			return 5
 		end
 
 	end
