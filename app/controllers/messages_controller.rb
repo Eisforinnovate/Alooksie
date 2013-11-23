@@ -104,8 +104,7 @@ class MessagesController < ApplicationController
 
 		#Get the hashtags from the message
 		#msghashtags = Messagehashtag.find(select: "hashtag_id", conditions:["message_id = ?",id])
-		hashtag_ids = Messagehashtag.where(["message_id", id]).select("hashtag_id")
-
+		hashtag_ids = Messagehashtag.find(:all, conditions:["message_id = ?", id])
 
 		#Return the 2nd smallest size if the message has no hashtags
 		if hashtag_ids.empty?
@@ -117,9 +116,11 @@ class MessagesController < ApplicationController
 		
 		#o(n^2) implentation, only ~5 tags per message so it shouldn't be a problem
 		hashtag_match = 0
+		logger.debug "for message: #{id}"
 		selected_hashtags.each do |user_hashtag|
 			hashtag_ids.each do |message_hashtag|
-				if user_hashtag == message_hashtag
+				logger.debug "eric is lame #{user_hashtag.hashtag_id},#{message_hashtag.hashtag_id}"
+				if user_hashtag.hashtag_id == message_hashtag.hashtag_id
 					hashtag_match += 1
 				end
 			end
