@@ -6,3 +6,7 @@
 App.ApplicationView = Ember.View.extend({
   templateName: "alooksie/templates/application"
 });
+
+App.HeaderView = Ember.View.extend({
+	templateName: "alooksie/templates/header"
+});

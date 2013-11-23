@@ -80,15 +80,6 @@ App.ready = function () {
 
 
 $(document).ready(function() {
-	var messages = $('.messages');
-	
-	messages.isotope({
-		animation: 'best-available',
-		masonry: {
-			gutterWidth: 10
-		}
-	});
-
 	//Embeds the CSRF token into the header, required to pass forgery check
 	var token = $('meta[name="csrf-token"]').attr('content');
 	$.ajaxPrefilter(function(options, originalOptions, xhr) {
