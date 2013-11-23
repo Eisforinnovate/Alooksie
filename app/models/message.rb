@@ -1,6 +1,6 @@
 class Message < ActiveRecord::Base
   attr_accessible :content
-  attr_accessor :name
+  attr_accessor :name, :priority
 
   belongs_to :user
   has_many :notifications

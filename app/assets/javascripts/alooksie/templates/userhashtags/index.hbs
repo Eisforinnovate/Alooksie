@@ -1,8 +1,7 @@
 <div class="messages">
+	<h1>MARK make this page pretty.  Perhaps embed it into the main messages view. -Ben </h1>
   {{#each userhashtag in controller}}
-  	{{#if userhashtag.name}}
-    	{{userhashtag.name}} <button class="btn btn-dancer">Remove</button><br>
-    {{/if}}
+  	{{render "userhashtag" userhashtag}}
   {{/each}}
  {{#link-to 'userhashtags.new'}} Add Hashtag{{/link-to}}
 </div>

@@ -19,7 +19,7 @@ class UserhashtagsController < ApplicationController
 		end
 	end
 
-	#Create a new hashtag link.  Create the hashtag if it doesn't exist
+	#Create a new user<->hashtag link.  Create the hashtag if it doesn't exist
 	def create
 		if session[:user]
 			@userhashtag = Userhashtag.new()
@@ -43,6 +43,22 @@ class UserhashtagsController < ApplicationController
 			#render json: @post, status: :created
 			#redirect_to :back
 		end
+	end
+
+	#Destroy the user<->hashtag link.
+	def destroy
+		if session[:user]
+			logger.debug "Poop: #{params[:id]}"
+			@userhashtag = Userhashtag.find(params[:id])
+			#Verify that the user isn't sneaky and tried to delete someone else's hashtag
+			if @userhashtag.user_id == session[:user].id
+				@userhashtag.destroy
+				render json: @userhashtag
+			end
+		else
+			render json: {}
+		end
+
 	end
 
 end

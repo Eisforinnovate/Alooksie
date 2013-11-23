@@ -12,5 +12,6 @@ App.Router.map(function () {
 	});
 	this.resource('userhashtags', function(){
 		this.route('new');
+		this.resource('userhashtag', {path: ':userhashtag_id'});
 	});
 });
