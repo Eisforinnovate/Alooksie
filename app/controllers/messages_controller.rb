@@ -39,11 +39,30 @@ class MessagesController < ApplicationController
 	def create
 		if session[:user]
 			@post = Message.new(:content => params[:message][:content])
-			logger.debug "Params: #{params[:message][:content]}"
 			@post.user_id = session[:user].id
-			@post.other_list = params[:message][:tags]
-
 			@post.save
+
+			#Remove the hashtags
+			words = params[:message][:content].split
+			words.each do |word|
+				if word[0] == "#"
+					#Determine if the hashtag exists
+					word[0] = ''
+					@hashtag = Hashtag.find(:first, conditions:["name = ?",word])
+
+					#Create the hashtag
+					if !@hashtag
+						@hashtag = Hashtag.new(name: word)
+						@hashtag.save
+					end
+
+					#Create the hashtag<->message link
+					@messagehashtag = Messagehashtag.new(message_id: @post.id, hashtag_id: @hashtag.id)
+					@messagehashtag.save
+				end
+			end
+
+
 			render json: @post, status: :created
 			#redirect_to :back
 		end

@@ -25,14 +25,20 @@ class UserhashtagsController < ApplicationController
 			@userhashtag = Userhashtag.new()
 			@userhashtag.user_id = session[:user].id
 
+			#Strip the '#' if the user put it
+			hashtag_name = params[:userhashtag][:name]
+			if hashtag_name[0] == '#'
+				hashtag_name[0] = ''
+			end
+
 			#Get the hashtag ID from the name, create if doesn't exist
-			@hashtag = Hashtag.find(:first, conditions:["name = ?",params[:userhashtag][:name]])
+			@hashtag = Hashtag.find(:first, conditions:["name = ?",hashtag_name])
 			if (!@hashtag)
 				h = Hashtag.new()
 				h.name = params[:userhashtag][:name]
 				h.save
 				#Now get the hashtag
-				@hashtag = Hashtag.find(:first, conditions:["name = ?",params[:userhashtag][:name]])
+				@hashtag = Hashtag.find(:first, conditions:["name = ?",hashtag_name])
 			end
 
 			@userhashtag.hashtag_id = @hashtag.id
