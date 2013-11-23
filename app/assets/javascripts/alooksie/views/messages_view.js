@@ -2,7 +2,7 @@ App.MessageView = Ember.View.extend({
 	templateName: "alooksie/templates/messages/show",
 	tagName: 'div',
 	classNames: ['message', 'panel'],
-	classNameBindings: ['priorityClass']
+	classNameBindings: ['priority']
 });
 
 App.MessagesView = Ember.View.extend({

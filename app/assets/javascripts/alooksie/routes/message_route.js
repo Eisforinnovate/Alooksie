@@ -63,10 +63,9 @@ App.MessagesNewRoute = Ember.Route.extend({
 	},
 	actions: {
 		save: function(){
-			console.log(arguments);
 			return this.controller.get('model').save().then(function(){
-				this.transitionToRoute('messages');
-			});
+				this.transitionTo('messages');
+			}.bind(this));
 		}		
 	}
 });

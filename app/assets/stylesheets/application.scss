@@ -180,7 +180,7 @@ a {
 
     @for $i from 1 to 6 {
       &.importance-#{$i} {
-        opacity: 0.75 + (0.05 * $i);
+        // opacity: 0.75 + (0.05 * $i);
         width: 20% + ($i * 5);
       }
     }

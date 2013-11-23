@@ -7,4 +7,7 @@ App.Message = DS.Model.extend({
 	updated_at: DS.attr('string'),
 	user: DS.belongsTo('user', {async: true}),
 	messagehashtag: DS.hasMany('messagehashtag'),
+	priorityClass: function() {
+		return 'importance-'+priority;
+	}.property('priority')
 });
