@@ -17,6 +17,12 @@ App.MessagesView = Ember.View.extend({
 	}
 });
 
+App.MessageListView = Ember.View.extend({
+	templateName: 'alooksie/templates/messages/feed',
+	tagName: 'div',
+	classNames: ['row']
+})
+
 App.MessagesNewView = Ember.View.extend({
 	templateName: "alooksie/templates/messages/new",
 	actions: {
@@ -25,3 +31,7 @@ App.MessagesNewView = Ember.View.extend({
 		}
 	}
 });
+
+App.MessageFilterView = Ember.View.extend({
+	templateName: 'alooksie/templates/messages/filter'
+})
