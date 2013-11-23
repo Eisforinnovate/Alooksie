@@ -4,10 +4,6 @@
       <label {{bindAttr for="contentField.field_id"}}>Content</label>
       {{view Ember.TextArea valueBinding='model.content' class='form-control' name='model.content' viewName='contentField'}}
     </div>
-    <div class="form-group">
-    	<label>Tags</label>s
-    	{{input valueBinding="model.tags" data-provide="tag" class="form-control" name="model.tags"}}
-    </div>
     <div class="btn-group">
 	    <button type="submit" {{action "save"}} class="btn btn-success">Submit</button>
 	    <button class="btn btn-dancer">Cancel</button>
