@@ -1,15 +1,11 @@
-<div {{bind-attr class=":message :panel message.priorityClass"}}>
-	<div class="message-content">{{message.content}}</div>
-	<div class="message-info">Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{message.name}}{{/link-to}}</div>
-	{{#if tags.length}}
-		<ul class="message-tags">
-		{{#each tags}}
-		<li>{{tag}}</li>
-		{{/each}}
-      	</ul>
-  	{{/if}}
-	<!--<div class="message-actions btn-group btn-group-justified">
-		<a class="btn btn-default action"><i class="icon-flag"></i> Report</a>
-		<a class="btn btn-default action" href="#"><i class="icon-share"></i> Share</a>
-	</div>-->
+<div class="message-content">{{message.content}}</div>
+<div class="message-info">
+	Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{message.name}}{{/link-to}}
 </div>
+{{#if tags.length}}
+	<ul class="message-tags">
+	{{#each tags}}
+	<li>{{tag}}</li>
+	{{/each}}
+  	</ul>
+{{/if}}

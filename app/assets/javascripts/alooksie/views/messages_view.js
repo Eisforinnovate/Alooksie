@@ -1,11 +1,19 @@
 App.MessageView = Ember.View.extend({
-	templateName: "alooksie/templates/messages/show"
+	templateName: "alooksie/templates/messages/show",
+	tagName: 'div',
+	classNames: ['message', 'panel'],
+	classNameBindings: ['priorityClass']
 });
 
 App.MessagesView = Ember.View.extend({
 	templateName: "alooksie/templates/messages/list",
+	tagName: 'div',
+	classNames: ['messages'],
 	didInsertElement: function() {
-		console.log('hi');
+		var $element = this.$();
+		$element.isotope({
+			itemSelector: '.message'
+		})
 	}
 });
 

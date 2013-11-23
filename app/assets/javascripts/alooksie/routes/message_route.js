@@ -60,5 +60,13 @@ App.MessagesNewRoute = Ember.Route.extend({
 	},
 	renderTemplate: function() {
 		this.render('alooksie/templates/messages/new');
+	},
+	actions: {
+		save: function(){
+			console.log(arguments);
+			return this.controller.get('model').save().then(function(){
+				this.transitionToRoute('messages');
+			});
+		}		
 	}
 });

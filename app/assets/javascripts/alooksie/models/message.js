@@ -7,11 +7,11 @@ App.Message = DS.Model.extend({
 	user: DS.belongsTo('user', {async: true}),
 	messagehashtag: DS.hasMany('messagehashtag'),
 	priority: DS.attr('number'),
+	priorityClass: 'importance-3',
 	/**
 	 * Should return the curent message priority here
 	 * @return {[type]} [description]
 	 */
-	//priorityClass: function(selected_hashtags) { 
 	priorityClass: function(user_id){
 	/*	//Return the middle size if the user has not selected any tags
 		if(selected_hashtags.length < 1)
@@ -40,6 +40,6 @@ App.Message = DS.Model.extend({
 			return 4;
 		else
 			return 5;*/
-		return 'importance-medium';
+		return 'importance-'+Math.floor((Math.random()*5)+1);
 	}.property('priority')
 });
