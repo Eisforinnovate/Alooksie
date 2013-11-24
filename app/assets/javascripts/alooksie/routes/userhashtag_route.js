@@ -31,7 +31,7 @@ App.UserhashtagsNewRoute = Ember.Route.extend({
 	actions: {
 		save: function(){
 			return this.controller.get('model').save().then(function(){
-				this.transitionTo('userhashtags');
+				this.transitionTo('userhashtags.index');
 			}.bind(this));
 		},
 		cancel: function(){

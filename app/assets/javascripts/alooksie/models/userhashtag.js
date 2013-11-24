@@ -5,5 +5,9 @@ App.Userhashtag = DS.Model.extend({
 	createdAt: DS.attr('date'),
 	updatedAt: DS.attr('date'),
 	user: DS.belongsTo('user'),
-	hashtag: DS.belongsTo('hashtag')
+	hashtag: DS.belongsTo('hashtag'),
+	hashtagname: function(){
+		var h = this.store.find('hashtag', this.get('hashtagId'));
+		return h.get('name');
+	}.property('hashtagId'),
 });
