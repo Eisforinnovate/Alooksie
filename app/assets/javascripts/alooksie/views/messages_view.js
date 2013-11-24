@@ -11,6 +11,12 @@ App.MessagesView = Ember.View.extend({
 	classNames: ['messages'],
 	didInsertElement: function() {
 		var $element = this.$();
+		// Add the priority class
+		$element.find('.message').each(function() {
+			var $this = $(this);
+			$this.addClass('importance-'+$this.children('.message-content').data('priority'));
+		});
+		// Go-go Isotope magic!
 		$element.isotope({
 			itemSelector: '.message'
 		})

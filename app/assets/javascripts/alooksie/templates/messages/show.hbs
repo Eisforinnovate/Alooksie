@@ -1,11 +1,11 @@
-<div class="message-content">{{message.content}}</div>
+<div class="message-content" {{bind-attr data-priority=message.priority}}>{{message.content}}</div>
 <div class="message-info">
-	Posted {{dateFromNow message.created_at}} by {{#link-to 'user' user}}{{message.name}}{{/link-to}}
+	Posted {{dateFromNow message.created_at}} by {{!-- {{#link-to 'user' user}} --}}{{message.name}}{{!-- {{/link-to}} --}}
 </div>
-{{#if tags.length}}
+{{!-- {{#if tags.length}}
 	<ul class="message-tags">
 	{{#each tags}}
 	<li>{{tag}}</li>
 	{{/each}}
   	</ul>
-{{/if}}
+{{/if}} --}}

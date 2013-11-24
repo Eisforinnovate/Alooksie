@@ -17,6 +17,23 @@ App.UserhashtagsRoute = Ember.Route.extend({
 	}
 });
 
+App.UserhashtagsFilterRoute = Ember.Route.extend({
+	/**
+	 * Return a 
+	 * @param {object} params [unused here]
+	 * @return {array} 		  Should return an array of Message models
+	 */
+	model: function() {
+		return this.store.findAll('userhashtag');
+	},
+	setupController: function(controller, hashtags) {
+		controller.set('model', hashtags);
+	},
+	// Render the main template
+	renderTemplate: function() {
+		this.render('alooksie/templates/userhashtags/filter');
+	}
+});
 
 App.UserhashtagsNewRoute = Ember.Route.extend({
 	model: function(){
@@ -31,12 +48,12 @@ App.UserhashtagsNewRoute = Ember.Route.extend({
 	actions: {
 		save: function(){
 			return this.controller.get('model').save().then(function(){
-				this.transitionTo('userhashtags.index');
+				this.transitionTo('userhashtags.filter');
 			}.bind(this));
 		},
 		cancel: function(){
 			this.controller.get('model').deleteRecord();
-			this.transitionTo('userhashtags.index');
+			this.transitionTo('userhashtags.filter');
 		}
 	}
 });

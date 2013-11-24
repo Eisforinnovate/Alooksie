@@ -1,11 +1,7 @@
-<form role="form">
-  <fieldset>
-    <div class="form-group">
-      {{view Ember.TextField valueBinding='name' class='form-control' name='name' viewName='nameField'}}
-    </div>
-    <div class="btn-group">
-	    <button type="submit" {{action "save"}} class="btn btn-success">Submit</button>
-	    <button class="btn btn-dancer" type="submit" {{action "cancel"}}>Cancel</button>
-    </div>
-  </fieldset>
-</form>
+<label for="addTag">Add Tracked Tag</label>
+<div class="input-group">
+	{{view Ember.TextField valueBinding='name' class='form-control' name='addTag' tagName='input'}}
+	<div class="input-group-btn">
+		<button type="submit" {{action "save"}} class="btn btn-success btn-small"><i class="icon-plus-sign"></i></button>
+	</div>
+</div>

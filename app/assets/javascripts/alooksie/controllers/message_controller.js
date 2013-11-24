@@ -3,10 +3,14 @@ App.MessageController = App.ObjectController.extend({
 });
 
 App.MessagesController = Ember.ArrayController.extend({
-	needs: ['currentUser']
+	needs: ['currentUser'],
+	itemController: "message"
 });
 
-App.MessagesNewController = Ember.ObjectController.extend({
+App.MessagesIndexController = Ember.ArrayController.extend({
+	// needs: ['currentUser'],
+	// itemController: 'message'
+});
 
-
+App.MessagesNewController = App.ObjectController.extend({
 });
