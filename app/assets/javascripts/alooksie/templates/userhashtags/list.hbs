@@ -1,0 +1,6 @@
+<div class="hashtags">
+	{{#each userhashtag in controller}}
+		{{view App.UserhashtagView}}
+	{{/each}}
+	{{#link-to 'userhashtags.new' class="btn btn-primary hashtag"}}<i class="icon-plus-sign"></i> Add Hashtag{{/link-to}}
+</div>
