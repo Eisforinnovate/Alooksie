@@ -33,6 +33,10 @@ App.UserhashtagsNewRoute = Ember.Route.extend({
 			return this.controller.get('model').save().then(function(){
 				this.transitionTo('userhashtags');
 			}.bind(this));
+		},
+		cancel: function(){
+			this.controller.get('model').deleteRecord();
+			this.transitionTo('userhashtags');
 		}
 	}
 });
