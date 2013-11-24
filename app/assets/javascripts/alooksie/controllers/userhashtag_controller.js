@@ -15,3 +15,7 @@ App.UserhashtagsController = Ember.ArrayController.extend({
 
 App.UserhashtagsNewController = Ember.ObjectController.extend({
 });
+
+App.UserhashtagsFilterController = Ember.ArrayController.extend({
+	itemController: 'Userhashtag'
+});
