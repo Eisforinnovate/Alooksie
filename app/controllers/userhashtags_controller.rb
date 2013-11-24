@@ -44,6 +44,10 @@ class UserhashtagsController < ApplicationController
 			@userhashtag.hashtag_id = @hashtag.id
 			@userhashtag.save
 
+			#Set the name of the new element
+			@userhashtag.name = params[:userhashtag][:name]
+			@userhashtag["name"] = params[:userhashtag][:name]
+
 			render json: @userhashtag, status: :created
 
 			#render json: @post, status: :created
