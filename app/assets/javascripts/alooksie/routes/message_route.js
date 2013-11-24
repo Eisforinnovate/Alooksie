@@ -48,7 +48,7 @@ App.MessagesIndexRoute = Ember.Route.extend({
 	renderTemplate: function() {
 		this.render('alooksie/templates/messages/index');
 	}
-})
+});
 
 
 App.MessagesNewRoute = Ember.Route.extend({
@@ -66,6 +66,10 @@ App.MessagesNewRoute = Ember.Route.extend({
 			return this.controller.get('model').save().then(function(){
 				this.transitionTo('messages');
 			}.bind(this));
+		},
+		cancel: function(){
+			this.controller.get('model').deleteRecord();
+			this.transitionTo('messages');
 		}		
 	}
 });
