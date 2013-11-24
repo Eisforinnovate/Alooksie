@@ -15,11 +15,11 @@ App.UserhashtagsNewController = Ember.ObjectController.extend({
 });
 
 App.UserhashtagController = Ember.ObjectController.extend({
-	actions: {
+	/*actions: {
 			destroy: function(){
 			var hashtag = this.get('model');
 			hashtag.deleteRecord();
 			return hashtag.save();
 		}
-	}
+	}*/
 });
