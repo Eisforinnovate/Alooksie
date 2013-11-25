@@ -136,10 +136,12 @@ a {
 .messages {
   .message {
     border: 0.15em solid purple;
-    border-radius: 0.2em;
+    border-radius: 0em;
     padding: 10px;
     float: left;
+    // box-sizing: border-box;
     margin-right: 1em;
+    margin-bottom: 1em;
     color: $gray;
 
     .message-info {
@@ -181,7 +183,9 @@ a {
     @for $i from 1 to 6 {
       &.importance-#{$i} {
         // opacity: 0.75 + (0.05 * $i);
-        width: 20% + ($i * 5);
+        $width: 10em * 2 * ($i - 1);
+        width: $width;
+        // height: ($width / 2);
       }
     }
   }

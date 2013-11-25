@@ -99,7 +99,7 @@ class MessagesController < ApplicationController
 
 		#Return the middle size if the user has not selected any tags
 		if selected_hashtags.nil? || selected_hashtags.empty?
-			return 3
+			return 1
 		end
 
 		#Get the hashtags from the message
