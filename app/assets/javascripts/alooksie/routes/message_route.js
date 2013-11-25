@@ -68,7 +68,7 @@ App.MessagesNewRoute = Ember.Route.extend({
 			}.bind(this));
 		},
 		cancel: function(){
-			this.controller.get('model').deleteRecord();
+			//this.controller.get('model').deleteRecord();
 			this.transitionTo('messages');
 		},
 		willTransition: function(transition) {
