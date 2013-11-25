@@ -1,6 +1,5 @@
 /* a few ie specific changes */
 body {
-	min-width:990px;
 	margin:0 auto;
 	background-color:#F2F2F2;
 }

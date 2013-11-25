@@ -25,6 +25,11 @@ $darkgray: #5C5C5C;
 $gray: #3D3D3D;
 $red: #B74635;
 
+// Breakpoints
+$lg-width: 1200px;
+$md-width: 992px;
+$sm-width: 768px;
+
 /* Global styles */
 body {
   background: #dbdbdb;
@@ -56,6 +61,16 @@ a {
     .brand {
       color: $darkpurple;
     }  
+  }
+
+  .navbar-collapse {
+    background-color: #FFFFFF;
+
+    ul.pull-right {
+      @media(max-width: $sm-width) {
+        float: none !important;
+      }
+    }
   }
 
   .nav {
@@ -143,6 +158,10 @@ a {
     margin-right: 1em;
     margin-bottom: 1em;
     color: $gray;
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+    width: 100%;
 
     .message-info {
       list-style: none;
@@ -180,12 +199,15 @@ a {
       }
     }
 
-    @for $i from 1 to 6 {
-      &.importance-#{$i} {
-        // opacity: 0.75 + (0.05 * $i);
-        $width: 10em + 10 * ($i - 1);
-        width: $width;
-        // height: ($width / 2);
+    @media(min-width: $md-width) {
+      @for $i from 1 to 6 {
+        &.importance-#{$i} {
+          // opacity: 0.75 + (0.05 * $i);
+          $width: 10em + 10 * ($i - 1);
+          width: $width;
+          opacity: 0.2 * $i;
+          // height: ($width / 2);
+        }
       }
     }
   }
