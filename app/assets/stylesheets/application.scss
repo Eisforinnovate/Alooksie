@@ -183,7 +183,7 @@ a {
     @for $i from 1 to 6 {
       &.importance-#{$i} {
         // opacity: 0.75 + (0.05 * $i);
-        $width: 10em * 2 * ($i - 1);
+        $width: 10em + 10 * ($i - 1);
         width: $width;
         // height: ($width / 2);
       }
