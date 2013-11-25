@@ -70,15 +70,20 @@ App.MessagesNewRoute = Ember.Route.extend({
 		cancel: function(){
 			this.controller.get('model').deleteRecord();
 			this.transitionTo('messages');
-		}
+		},
 		willTransition: function(transition) {
-			if(!confirm("Are you sure you want to abandon progress?")) {
-		        transition.abort();
+			if(this.controller.get('model').get('id') == null) {
+				if(confirm('You will lose any changes made to your new message; continue?')) {
+					this.controller.get('model').deleteRecord();
+					return true;
+				} else {
+					transition.abort();
+					return false;
+				}
 			} else {
-		        // Bubble the `willTransition` action so that
-		        // parent routes can decide whether or not to abort.
-		        return true;
+				// Bubble up
+				return true;
 			}
-	    }
+		}
 	}
 });
