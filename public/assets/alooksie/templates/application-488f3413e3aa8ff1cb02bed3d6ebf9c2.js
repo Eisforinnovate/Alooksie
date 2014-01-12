@@ -1,0 +1,1 @@
+window.Ember.TEMPLATES["alooksie/templates/application"]=Ember.Handlebars.compile("{{view App.HeaderView}}\n\n{{outlet}}\n\n{{render alooksie/templates/footer}}\n");
