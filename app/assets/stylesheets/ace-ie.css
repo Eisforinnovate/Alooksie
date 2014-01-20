@@ -1,12 +1,7 @@
 /* a few ie specific changes */
 body {
 	margin:0 auto;
-	background-color:#F2F2F2;
 }
-body:before {
-	
-}
-
 
 .sidebar {
  *left:0px;

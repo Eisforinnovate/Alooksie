@@ -21,8 +21,12 @@ alooksiefav200.png: alooksiefav200-cb0890b4b8572fab641c1ba575c21103.png
 alooksiefav200/index.png: alooksiefav200-cb0890b4b8572fab641c1ba575c21103.png
 alooksiemain.png: alooksiemain-def226dff2fbb742b75de9e0f9d78fe1.png
 alooksiemain/index.png: alooksiemain-def226dff2fbb742b75de9e0f9d78fe1.png
+background.JPG: background-f2d34980f1a3c929e4b5879d5c5ff717.JPG
+background/index.JPG: background-f2d34980f1a3c929e4b5879d5c5ff717.JPG
 bg2.jpg: bg2-f5e050702ca6ecf2240bea8f0bcf0e70.jpg
 bg2/index.jpg: bg2-f5e050702ca6ecf2240bea8f0bcf0e70.jpg
+connect-fb.png: connect-fb-7071ee40f16cdd1acef41a0e0f592c3c.png
+connect-fb/index.png: connect-fb-7071ee40f16cdd1acef41a0e0f592c3c.png
 cubes.png: cubes-a685ad498b924eac5379f294fba80fa3.png
 cubes/index.png: cubes-a685ad498b924eac5379f294fba80fa3.png
 favicon.ico: favicon-a480effae4eba84b611d2bb216ed9f8e.ico
@@ -64,8 +68,8 @@ external/moment/package.json: external/moment/package-04bab58e4d24fc14012f3cd543
 external/moment/package/index.json: external/moment/package-04bab58e4d24fc14012f3cd543a14c7a.json
 external/moment/readme.md: external/moment/readme-e4e0c76c92bc71e1b62da2e9d4748f58.md
 external/moment/readme/index.md: external/moment/readme-e4e0c76c92bc71e1b62da2e9d4748f58.md
-application.css: application-003fb6cc29e811bc7cc821d35782693e.css
-application/index.css: application-003fb6cc29e811bc7cc821d35782693e.css
+application.css: application-36df241c381abfc000f98098d6f2052a.css
+application/index.css: application-36df241c381abfc000f98098d6f2052a.css
 chosen-sprite.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite/index.png: chosen-sprite-0b638291e3ab1e89592983b5810b9b79.png
 chosen-sprite@2x.png: chosen-sprite@2x-8fa0fb1eb347c8dc10a5381b22383ac6.png

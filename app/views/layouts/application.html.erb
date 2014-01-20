@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie6" lang="en"><![endif]-->
-<!--[if IE 7 ]><html class="ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<% if session[:user] %>
+<html lang="en" class="logged-in">
+<% else %>
+<html lang="en" class="logged-out">
+<% end %>
 <head>
 	<meta charset="utf-8" />
 	<!-- Set the viewport width to device width for mobile -->
@@ -16,25 +17,63 @@
 		<% logger.info "Current Session Info: #{session[:user]}" %>
 	<% end %>
 </head>
-
 <body>
-	<div id="root" class="container">
-		<% if flash[:notice] -%>
+
+	<% if flash[:notice] -%>
 		<div class="alert-box alert-info"><%= flash[:notice] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:error] -%>
+	<% end -%>
+	<% if flash[:error] -%>
 		<div class="alert-box alert-error"><%= flash[:error] %>  <button type="button" class="close" data-dismiss="alert">&times;</button></div>
-		<% end -%>
-		<% if flash[:debug] -%>
+	<% end -%>
+	<% if flash[:debug] -%>
 		<div class="alert-box alert-info"><%= debug flash[:debug] %></div>
-		<% end -%>
-		<script type="text/x-handlebars" data-template-name="application">
-			{{outlet}}
-		</script>
-		<%= yield %>
-	</div>
-	<%= javascript_include_tag "http://code.jquery.com/jquery-1.9.1.js" %>
-	<%= javascript_include_tag "http://code.jquery.com/ui/1.10.3/jquery-ui.js" %>
+	<% end -%>
+	<% if session[:user] %>
+		<div id="root" class="container">
+			<script type="text/x-handlebars" data-template-name="application">
+				{{outlet}}
+			</script>
+			<%= yield %>
+		</div>
+	<% else %>
+		<header class="navbar navbar-fixed-top" role="banner">
+		  <div class="container">
+		    <div class="navbar-header">
+		      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+		        <span class="sr-only">Toggle navigation</span>
+		        <i class="icon-list"></i>
+		      </button>
+		      <a id="ember479" class="ember-view navbar-brand" href="#/">Alooksie</a>
+		    </div>
+		    <nav class="collapse navbar-collapse" role="navigation">
+		  		<ul class="nav navbar-nav pull-right">
+		  			<li><a class="login" href="/auth/facebook"><i class="icon-facebook-sign"></i> Login</a></li>
+		  		</ul>
+		    </nav>
+		  </div>
+		</header>
+		<div class="container">
+			<div class="login-draw">
+				<div class="row">
+					<div class="col-md-7">
+						<iframe width="560" height="315" src="//www.youtube.com/embed/5bJsOZd2C6w" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-5">
+						<h1>alooksie</h1>
+						<ol>
+							<li>Your Interests</li>
+							<li>Your Location</li>
+							<li>In the Moment</li>
+						</ol>
+						<h3>See what's happening right now!</h3>
+						<%= link_to(image_tag("connect-fb.png"), '/auth/facebook') %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	<%= javascript_include_tag "//code.jquery.com/jquery-1.9.1.js" %>
+	<%= javascript_include_tag "//code.jquery.com/ui/1.10.3/jquery-ui.js" %>
     <%= javascript_include_tag "application" %>
 	<%= yield :extra_javascript %>
 </body>

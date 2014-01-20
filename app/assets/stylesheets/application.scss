@@ -30,10 +30,17 @@ $md-width: 992px;
 $sm-width: 768px;
 
 /* Global styles */
+html {
+
+  &.logged-out {
+    background-size: cover;
+    background: image-url("background.jpg") fixed top;
+  }
+}
 body {
-  background: #dbdbdb;
   font-family: 'Noto Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', Arial, sans-serif;
   padding-top: 5.5em;
+  background: transparent;
 }
 h1,h2,h3,h4,h5,h6 {
   color: inherit;
@@ -48,6 +55,23 @@ a {
      float: none;
      margin-left: auto;
      margin-right: auto;
+}
+
+.login-draw {
+  border: 1em solid rgba($lightgray, 0.5);
+  border-radius: 1em;
+
+  h1, h2, h3 {
+    color: $purple;
+  }
+
+  > div {
+      background: rgba(lighten($lightgray, 50%), 0.75);
+      margin: {
+        left: 0;
+        right: 0;
+      }
+  }
 }
 
 /** Navbar **/
